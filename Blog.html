@@ -1,0 +1,764 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>REGENERATE | The Editorial</title>
+    <link rel="icon" type="image/png" href="favicon.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    screens: { 'lg': '1024px' },
+                    fontFamily: {
+                        sans: ['DM Sans', 'sans-serif'],
+                        serif: ['Cormorant Garamond', 'serif'],
+                    },
+                    colors: {
+                        cream: '#f8f5f2',
+                        leather: '#8B5E3C',
+                        gold: '#D4AF37',
+                        charcoal: '#2b2b2b',
+                        espresso: '#2E2218',
+                    },
+                    animation: { 'fade-in-up': 'fadeInUp 0.8s ease-out forwards' },
+                    keyframes: {
+                        fadeInUp: { '0%': { opacity: '0', transform: 'translateY(30px)' }, '100%': { opacity: '1', transform: 'translateY(0)' } }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap');
+
+        /* TOKENS */
+        :root { --cream: #f8f5f2; --charcoal: #2b2b2b; --espresso: #2E2218; --leather: #8B5E3C; --secondary: #EAE4DD; --text-main: #2b2b2b; --text-muted: rgba(43, 43, 43, 0.6); --border: rgba(43, 43, 43, 0.12); --surface-raise: #ffffff; }
+        .dark { --cream: #0e0e0e; --charcoal: #f0ece8; --espresso: #070503; --leather: #6b3e1e; --secondary: #1a1714; --text-main: #f0ece8; --text-muted: rgba(240, 236, 232, 0.55); --border: rgba(212, 175, 55, 0.25); --surface-raise: #1c1813; }
+
+        * { box-sizing: border-box; }
+        body { background-color: var(--cream); color: var(--text-main); font-family: 'DM Sans', sans-serif; transition: background-color 0.45s ease, color 0.45s ease; overflow-x: hidden; }
+        .font-serif { font-family: 'Cormorant Garamond', serif; }
+
+        h1, h2, h3, h4 { color: var(--text-main); }
+        p, li, span, label { color: var(--text-main); }
+
+        /* Color Overrides for Dark Containers */
+        .bg-espresso-token, .bg-leather-token, .surface-dark, footer, .receipt-box, .consultation-box {
+            --text-main: #f8f5f2;
+            --text-muted: rgba(248, 245, 242, 0.65);
+            --border: rgba(248, 245, 242, 0.15);
+        }
+
+        footer {
+            color: #f8f5f2;
+        }
+
+        footer h4,
+        footer p,
+        footer li,
+        footer a,
+        footer span {
+            color: #ffffff !important;
+        }
+
+        footer .fw-70 {
+            color: #ffffff !important;
+        }
+
+        footer .fw-40 {
+            color: rgba(255, 255, 255, .60) !important;
+        }
+
+        footer .fw-20 {
+            color: rgba(255, 255, 255, .30) !important;
+        }
+
+        footer .text-yellow-400,
+        footer .text-yellow-400 i {
+            color: #D4AF37 !important;
+        }
+
+        footer a:hover {
+            color: #D4AF37 !important;
+        }
+
+        .fw { color: #f8f5f2 !important; }
+        .fw-70 { color: rgba(248, 245, 242, .70) !important; }
+        .fw-40 { color: rgba(248, 245, 242, .40) !important; }
+        .fw-20 { color: rgba(248, 245, 242, .20) !important; }
+        .text-main { color: var(--text-main) !important; }
+        .text-muted { color: var(--text-muted) !important; }
+
+        /* NAVBAR */
+        #navbar {
+            background-color: #ffffff !important;
+            border-bottom: 1px solid var(--border);
+        }
+        .dark #navbar {
+            background-color: #2E2218 !important;
+            border-bottom: 1px solid rgba(212, 175, 55, .15);
+        }
+        .nav-link { position: relative; color: var(--text-main); font-size: 0.75rem; font-weight: 500; text-transform: uppercase; letter-spacing: 0.2em; transition: color .4s; }
+        .dark .nav-link { color: #f8f5f2; }
+        .nav-link::after { content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 1px; background: #D4AF37; transition: width .4s cubic-bezier(.25, .46, .45, .94); }
+        .nav-link:hover { color: #D4AF37; }
+        .nav-link:hover::after { width: 100%; }
+        .h-line { transition: all .4s cubic-bezier(.4, 0, .2, 1); }
+        .menu-open .l1 { transform: translateY(8px) rotate(45deg); }
+        .menu-open .l2 { opacity: 0; transform: translateX(-20px); }
+        .menu-open .l3 { transform: translateY(-8px) rotate(-45deg); width: 2rem !important; }
+        /* ===== MOBILE MENU ===== */
+        #mobile-menu {
+            transition: opacity .5s ease, visibility .5s ease;
+            background-color: #2E2218 !important;
+        }
+        #mobile-menu .mob-link, #mobile-menu span, #mobile-menu i {
+            color: #f8f5f2 !important;
+        }
+        #mobile-menu .mob-link:hover {
+            color: #D4AF37 !important;
+        }
+
+        .mob-link {
+            opacity: 0;
+            transform: translateY(1.5rem);
+            transition: all 0.4s;
+        }
+
+        .reveal { opacity: 0; transform: translateY(28px); transition: opacity .75s ease, transform .75s ease; }
+        .reveal.visible { opacity: 1; transform: translateY(0); }
+
+        .bg-cream-token { background-color: var(--cream); }
+        .bg-secondary-token { background-color: var(--secondary); }
+        .bg-leather-token { background-color: var(--leather); }
+        .bg-espresso-token { background-color: var(--espresso); }
+        .text-main { color: var(--text-main); }
+        .text-muted { color: var(--text-muted); }
+        .border-token { border-color: var(--border) !important; }
+        
+        /* Modal fields */
+        .field { width: 100%; padding: 1rem 1.25rem; background: rgba(0, 0, 0, .35); border: 1px solid rgba(212, 175, 55, .2); color: #f8f5f2; font-family: 'DM Sans', sans-serif; font-size: 0.8rem; outline: none; border-radius: 2px; transition: border-color .3s; }
+        .field::placeholder { color: rgba(248, 245, 242, .45); }
+        .field:focus { border-color: #D4AF37; }
+
+        /* RTL */
+        [dir="rtl"] .space-x-4>*+* {
+            margin-right: 1rem;
+            margin-left: 0;
+        }
+
+        [dir="rtl"] #home-dd {
+            left: auto;
+            right: 0;
+        }
+
+        [dir="rtl"] .ml-auto {
+            margin-right: auto !important;
+            margin-left: 0 !important;
+        }
+
+        [dir="rtl"] .mr-auto {
+            margin-left: auto !important;
+            margin-right: 0 !important;
+        }
+
+        [dir="rtl"] .text-left,
+        [dir="rtl"] .lg\:text-left,
+        [dir="rtl"] .md\:text-left {
+            text-align: right !important;
+        }
+
+        [dir="rtl"] .text-right,
+        [dir="rtl"] .lg\:text-right,
+        [dir="rtl"] .md\:text-right {
+            text-align: left !important;
+        }
+
+        [dir="rtl"] .pr-6 {
+            padding-left: 1.5rem !important;
+            padding-right: 0 !important;
+        }
+
+        [dir="rtl"] .pl-6 {
+            padding-right: 1.5rem !important;
+            padding-left: 0 !important;
+        }
+
+        /* ===== BLOG UNIQUE STYLES ===== */
+        .ed-line { height: 1px; background-color: var(--border); width: 100%; display: block; }
+        
+        .feat-card { overflow: hidden; position: relative; }
+        .feat-card img { transition: transform 1.2s ease, filter 1.2s ease; filter: sepia(40%) grayscale(30%); }
+        .feat-card:hover img { transform: scale(1.03); filter: sepia(0%) grayscale(0%); }
+        .feat-content { backdrop-filter: blur(8px); background: rgba(var(--cream), 0.85); border: 1px solid var(--border); }
+        
+        .list-row { border-bottom: 1px solid var(--border); transition: all 0.4s ease; cursor: pointer; }
+        .list-row:hover { background-color: var(--secondary); padding-left: 1rem; padding-right: 1rem; }
+        .list-img-wrap { overflow: hidden; border-radius: 2px; }
+        .list-img-wrap img { transition: transform 0.6s; }
+        .list-row:hover .list-img-wrap img { transform: scale(1.1); filter: contrast(1.1); }
+
+        .cat-box { border-right: 1px solid var(--border); border-bottom: 1px solid var(--border); transition: all 0.5s ease; position: relative; overflow: hidden;}
+        .cat-box::after { content: ''; position: absolute; inset: 0; background: var(--text-main); transform: scaleY(0); transform-origin: top; transition: transform 0.5s ease; z-index: 0; }
+        .cat-box:hover::after { transform: scaleY(1); transform-origin: bottom; }
+        .cat-box > * { position: relative; z-index: 10; transition: color 0.5s; }
+        .cat-box:hover > h3, .cat-box:hover > i, .cat-box:hover > p { color: var(--cream) !important; }
+        .cat-box:hover > p { opacity: 0.8; }
+
+
+        .sub-input { width: 100%; border: none; border-bottom: 2px solid var(--border); background: transparent; padding: 1.5rem 0; font-size: 2rem; color: var(--text-main); outline: none; transition: border-color 0.4s; border-radius: 0;}
+        .sub-input:focus { border-color: #D4AF37; }
+        .sub-input::placeholder { color: var(--text-muted); font-weight: 300; }
+        
+        html { scroll-behavior: smooth; }
+        ::selection { background: #D4AF37; color: #2E2218; }
+    </style>
+    <link rel="stylesheet" href="rtl-fix.css">
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav id="navbar" class="fixed w-full z-[100] py-4 transition-all duration-500">
+        <div class="w-full px-6 lg:px-12 flex items-center justify-between">
+
+            <!-- Logo -->
+            <a href="index.html"
+                class="font-serif text-2xl lg:text-3xl text-main dark:text-[#f8f5f2] tracking-tighter flex items-center gap-2 group">
+                <span
+                    class="w-8 h-8 rounded-full border border-yellow-500 flex items-center justify-center text-xs text-yellow-500 group-hover:bg-yellow-400 group-hover:text-[#2E2218] transition-all">R</span>
+                REGENERATE
+            </a>
+
+            <!-- Desktop Nav -->
+            <div class="hidden lg:flex items-center gap-10">
+                <!-- Home dropdown -->
+                <div class="relative group/home">
+                    <button class="nav-link flex items-center gap-1">Home <i
+                            class="bi bi-chevron-down text-[9px]"></i></button>
+                    <div id="home-dd"
+                        class="absolute top-full left-0 mt-4 w-44 bg-[#2E2218] border border-yellow-600/20 opacity-0 invisible group-hover/home:opacity-100 group-hover/home:visible transition-all duration-300 py-3 shadow-2xl">
+                        <a href="index.html"
+                            class="block px-5 py-2 text-[10px] uppercase tracking-widest fw-70 hover:text-yellow-400 hover:bg-yellow-400/10 transition-colors">Home
+                            1</a>
+                        <a href="Home2.html"
+                            class="block px-5 py-2 text-[10px] uppercase tracking-widest fw-70 hover:text-yellow-400 hover:bg-yellow-400/10 transition-colors">Home
+                            2</a>
+                    </div>
+                </div>
+                <a href="About.html" class="nav-link">About</a>
+                <a href="Services.html" class="nav-link">Services</a>
+                <a href="Process.html" class="nav-link">Process</a>
+                
+                <a href="Gallery.html" class="nav-link">Gallery</a>
+                <a href="Blog.html" class="nav-link" style="color:#D4AF37;">Blog</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+            </div>
+
+            <!-- Desktop Icons -->
+            <div class="hidden lg:flex items-center gap-7 text-main dark:text-[#f8f5f2] relative">
+                <button title="Toggle Theme" class="theme-toggle hover:text-yellow-400 transition-all hover:scale-110 cursor-pointer">
+                    <i class="bi bi-moon-stars"></i>
+                </button>
+                
+                <button onclick="toggleDir()" title="Toggle RTL/LTR"
+                    class="hover:text-yellow-400 transition-all hover:scale-110 cursor-pointer">
+                    <i class="fa-solid fa-right-left"></i>
+                </button>
+
+                <a href="Login.html" class="px-5 py-2 bg-gold text-espresso text-[10px] uppercase tracking-widest font-bold rounded-sm hover:bg-charcoal hover:text-white dark:hover:bg-white transition-all duration-300">Login</a>
+            </div>
+
+            <!-- Hamburger -->
+            <button id="menu-btn" class="lg:hidden flex flex-col gap-[7px] focus:outline-none p-2 z-[200] relative">
+                <span class="h-line l1 w-8 h-[1px] bg-yellow-500 block"></span>
+                <span class="h-line l2 w-8 h-[1px] bg-yellow-500 block"></span>
+                <span class="h-line l3 w-5 h-[1px] bg-yellow-500 block ml-auto"></span>
+            </button>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu"
+            class="fixed inset-0 bg-[#2E2218] z-[150] opacity-0 invisible overflow-y-auto">
+            <div class="min-h-full flex flex-col items-center justify-center py-24 px-6 gap-0">
+
+                <!-- Nav Links -->
+                <nav class="flex flex-col items-center gap-2 w-full">
+                    <a href="index.html"
+                        class="mob-link font-serif text-3xl fw opacity-0 translate-y-6 transition-all duration-300 hover:text-yellow-400 py-2">Home 1</a>
+                    <a href="Home2.html"
+                        class="mob-link font-serif text-3xl fw opacity-0 translate-y-6 transition-all duration-300 hover:text-yellow-400 py-2">Home 2</a>
+                    <a href="About.html"
+                        class="mob-link font-serif text-2xl fw opacity-0 translate-y-6 transition-all duration-300 hover:text-yellow-400 py-2">About</a>
+                    <a href="Services.html"
+                        class="mob-link font-serif text-2xl fw opacity-0 translate-y-6 transition-all duration-300 hover:text-yellow-400 py-2">Services</a>
+                    <a href="Process.html"
+                        class="mob-link font-serif text-2xl fw opacity-0 translate-y-6 transition-all duration-300 hover:text-yellow-400 py-2">Process</a>
+                   
+                    <a href="Gallery.html"
+                        class="mob-link font-serif text-2xl fw opacity-0 translate-y-6 transition-all duration-300 hover:text-yellow-400 py-2">Gallery</a>
+                    <a href="Blog.html"
+                        class="mob-link font-serif text-2xl fw opacity-0 translate-y-6 transition-all duration-300 hover:text-yellow-400 py-2" style="color:#D4AF37;">Blog</a>
+                    <a href="contact.html"
+                        class="mob-link font-serif text-2xl fw opacity-0 translate-y-6 transition-all duration-300 hover:text-yellow-400 py-2">Contact</a>
+                </nav>
+
+                <!-- Auth row (Mobile) -->
+                <div class="mob-link opacity-0 translate-y-6 transition-all duration-300 flex gap-4 w-full px-6 mb-8 mt-8">
+                    <a href="Login.html" class="flex-1 py-4 border border-yellow-600/30 text-yellow-400 text-center uppercase tracking-widest text-[10px] fw-70 hover:bg-yellow-400 hover:text-espresso transition-all duration-500 rounded-sm">Login</a>
+                    <a href="Register.html" class="flex-1 py-4 bg-yellow-600 text-espresso text-center uppercase tracking-widest text-[10px] font-bold hover:bg-white transition-all duration-500 rounded-sm">Register</a>
+                </div>
+
+                <!-- Divider -->
+                <div class="mob-link opacity-0 translate-y-6 transition-all duration-300 w-32 h-[1px] bg-yellow-600/25 my-4"></div>
+
+                <!-- Utility Icons Row -->
+                <div class="mob-link opacity-0 translate-y-6 transition-all duration-300 flex items-center gap-6 text-yellow-400">
+                    <button class="theme-toggle flex flex-col items-center gap-1 hover:text-white transition-colors cursor-pointer" title="Toggle Theme">
+                        <i class="bi bi-moon-stars text-xl"></i>
+                        <span class="text-[8px] uppercase tracking-widest fw-40">Theme</span>
+                    </button>
+                    <div class="w-[1px] h-8 bg-yellow-600/25"></div>
+                    <button onclick="toggleDir()" class="flex flex-col items-center gap-1 hover:text-white transition-colors cursor-pointer" title="Toggle RTL/LTR">
+                        <i class="bi bi-arrows-expand-vertical text-xl"></i>
+                        <span class="text-[8px] uppercase tracking-widest fw-40">RTL</span>
+                    </button>
+                    <div class="w-[1px] h-8 bg-yellow-600/25"></div>
+                    <a href="contact.html" class="flex flex-col items-center gap-1 hover:text-white transition-colors">
+                        <i class="bi bi-instagram text-xl"></i>
+                        <span class="text-[8px] uppercase tracking-widest fw-40">Insta</span>
+                    </a>
+                    <a href="contact.html" class="flex flex-col items-center gap-1 hover:text-white transition-colors">
+                        <i class="bi bi-facebook text-xl"></i>
+                        <span class="text-[8px] uppercase tracking-widest fw-40">FB</span>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </nav>
+
+
+
+    <!-- ======================================
+     1. EDITORIAL HEADER
+====================================== -->
+    <section class="bg-cream-token w-full pt-44 lg:pt-52 pb-16 reveal relative">
+        <div class="container mx-auto px-6 lg:px-12 text-center md:text-left">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-6">
+                <h1 class="font-serif text-6xl md:text-8xl lg:text-[7rem] text-main leading-none tracking-tight">
+                    The Journal.
+                </h1>                
+                <p class="text-xs uppercase tracking-[.3em] font-bold text-yellow-600 mt-6 md:mt-0">Issue IV — 2026</p>
+            </div>
+            <span class="ed-line"></span>
+            
+            <div class="flex flex-col md:flex-row justify-between pt-6 gap-6">
+                <p class="font-serif italic text-2xl md:text-3xl text-main opacity-80 max-w-lg">
+                    Insights on ethical restoration, archive sourcing, and vintage curation.
+                </p>
+                <div class="flex gap-4">
+                    <a href="#articles" class="w-12 h-12 rounded-full border border-token flex items-center justify-center text-main hover:bg-[#2E2218] hover:text-[#D4AF37] hover:border-[#2E2218] transition-all hover:-translate-y-1"><i class="bi bi-arrow-down text-lg"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ======================================
+     2. FEATURED ARTICLE
+====================================== -->
+    <section class="bg-cream-token w-full pb-20 lg:pb-32 reveal">
+        <div class="container mx-auto px-6 lg:px-12">
+            
+            <div class="feat-card w-full rounded-sm border border-token shadow-sm flex flex-col lg:flex-row">
+                <!-- Large Image (Full Visibility) -->
+                <div class="w-full lg:w-3/5 relative overflow-hidden h-[400px] lg:h-[600px] border-b lg:border-b-0 lg:border-r border-token">
+                    <img src="Assert/images/BlogpageBg.jpg" alt="Featured Article" class="absolute inset-0 w-full h-full object-cover">
+                </div>
+
+                <!-- Side Text Block -->
+                <div class="w-full lg:w-2/5 p-10 lg:p-16 flex flex-col justify-center bg-cream-token relative z-10">
+                    <div class="flex items-center gap-4 mb-8">
+                        <span class="text-[9px] uppercase tracking-widest text-[#D4AF37] font-bold border border-[#D4AF37] px-3 py-1 rounded-full">Editorial</span>
+                        <span class="text-xs text-muted font-bold tracking-wider">Sep 14</span>
+                    </div>
+                    
+                    <h2 class="font-serif text-4xl md:text-5xl lg:text-6xl text-main leading-tight mb-8">The Crisis of Fast Fashion Leather.</h2>
+                    <p class="text-muted leading-relaxed mb-12 text-sm md:text-base">Why investing in a restored vintage hide is drastically superior to purchasing heavily processed mass-market alternatives in an era of declining material quality. We examine the chemical shortfalls of modern tanning.</p>
+                    
+                    <a href="#" class="inline-flex items-center gap-3 text-[10px] uppercase tracking-widest font-bold pb-1 text-main border-b border-token hover:border-yellow-600 transition-colors group w-fit">
+                        Read Feature <i class="bi bi-arrow-right group-hover:translate-x-2 transition-transform text-yellow-600"></i>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ======================================
+     3. ARTICLE LIST (VERTICAL)
+====================================== -->
+    <section id="articles" class="bg-secondary-token w-full py-24 lg:py-36 border-t border-token reveal">
+        <div class="container mx-auto px-6 lg:px-12">
+            
+            <div class="flex flex-col md:flex-row justify-between items-end mb-14">
+                <h3 class="font-serif text-4xl lg:text-5xl text-main">Recent Transcripts</h3>
+                <a href="#" class="text-[10px] md:text-xs uppercase tracking-[.2em] font-bold text-muted hover:text-yellow-600 transition-colors border-b border-transparent hover:border-yellow-600 pb-1 mt-4 md:mt-0">View All Publications</a>
+            </div>
+
+            <div class="border-t border-token flex flex-col">
+                
+                <!-- Article Item -->
+                <div class="list-row w-full py-10 lg:py-12 flex flex-col md:flex-row md:items-center justify-between gap-8 group">
+                    <div class="w-full md:w-3/4 pr-0 lg:pr-16">
+                        <div class="flex items-center gap-4 mb-4">
+                            <span class="text-xs text-muted font-bold uppercase tracking-widest">Aug 22</span>
+                            <div class="w-1 h-1 bg-yellow-600 rounded-full"></div>
+                            <span class="text-[10px] uppercase tracking-widest text-yellow-600 font-bold">Conservation</span>
+                        </div>
+                        <h4 class="font-serif text-3xl md:text-4xl text-main mb-4 group-hover:text-yellow-600 dark:group-hover:text-yellow-400 transition-colors">Identifying Chromium Tanning Degradation</h4>
+                        <p class="text-muted group-hover:text-main transition-colors leading-relaxed line-clamp-2 md:line-clamp-none max-w-2xl text-sm md:text-base">A technical deep-dive into how mid-century tanning processes fracture over time, and why immediate oil infiltration stops absolute decay.</p>
+                    </div>
+                    <div class="w-full md:w-1/4 h-48 md:h-32 list-img-wrap hidden md:block">
+                        <img src="Assert/images/BlogImg1.jpg" alt="Article Thumbnail" class="w-full h-full object-cover">
+                    </div>
+                </div>
+
+                <!-- Article Item -->
+                <div class="list-row w-full py-10 lg:py-12 flex flex-col md:flex-row md:items-center justify-between gap-8 group">
+                    <div class="w-full md:w-3/4 pr-0 lg:pr-16">
+                        <div class="flex items-center gap-4 mb-4">
+                            <span class="text-xs text-muted font-bold uppercase tracking-widest">Aug 09</span>
+                            <div class="w-1 h-1 bg-yellow-600 rounded-full"></div>
+                            <span class="text-[10px] uppercase tracking-widest text-yellow-600 font-bold">Methodology</span>
+                        </div>
+                        <h4 class="font-serif text-3xl md:text-4xl text-main mb-4 group-hover:text-yellow-600 dark:group-hover:text-yellow-400 transition-colors">The Problem With Modern Zippers</h4>
+                        <p class="text-muted group-hover:text-main transition-colors leading-relaxed line-clamp-2 md:line-clamp-none max-w-2xl text-sm md:text-base">Why we obsessively source cold-forged brass hardware from deadstock suppliers to match the weight and pull-tension of original moto jackets.</p>
+                    </div>
+                    <div class="w-full md:w-1/4 h-48 md:h-32 list-img-wrap hidden md:block">
+                        <img src="Assert/images/Home23Bg.avif" alt="Article Thumbnail" class="w-full h-full object-cover">
+                    </div>
+                </div>
+
+                <!-- Article Item -->
+                <div class="list-row w-full py-10 lg:py-12 flex flex-col md:flex-row md:items-center justify-between gap-8 group border-b-0">
+                    <div class="w-full md:w-3/4 pr-0 lg:pr-16">
+                        <div class="flex items-center gap-4 mb-4">
+                            <span class="text-xs text-muted font-bold uppercase tracking-widest">July 31</span>
+                            <div class="w-1 h-1 bg-yellow-600 rounded-full"></div>
+                            <span class="text-[10px] uppercase tracking-widest text-yellow-600 font-bold">Design</span>
+                        </div>
+                        <h4 class="font-serif text-3xl md:text-4xl text-main mb-4 group-hover:text-yellow-600 dark:group-hover:text-yellow-400 transition-colors">Reshaping 80s Fur Silhouettes</h4>
+                        <p class="text-muted group-hover:text-main transition-colors leading-relaxed line-clamp-2 md:line-clamp-none max-w-2xl text-sm md:text-base">A visual essay on altering outdated exaggerated shoulder caps in heirloom fur coats to produce a draping, contemporary silhouette.</p>
+                    </div>
+                    <div class="w-full md:w-1/4 h-48 md:h-32 list-img-wrap hidden md:block">
+                        <img src="Assert/images/BlogImg3.jpg" alt="Article Thumbnail" class="w-full h-full object-cover">
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ======================================
+     4. CATEGORY FILTER (Architectural Grid)
+====================================== -->
+    <section class="w-full bg-cream-token reveal border-y border-token">
+        <!-- 4 Column Grid -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
+            
+            <a href="#" class="cat-box py-16 text-center cursor-pointer block border-token">
+                <i class="bi bi-scissors text-3xl mb-4 text-yellow-600 block"></i>
+                <h3 class="font-serif text-3xl text-main tracking-tight">Tailoring</h3>
+                <p class="text-[10px] uppercase tracking-[.2em] font-bold text-muted mt-3">24 Articles</p>
+            </a>
+            
+            <a href="#" class="cat-box py-16 text-center cursor-pointer block border-token">
+                <i class="bi bi-droplet-half text-3xl mb-4 text-yellow-600 block"></i>
+                <h3 class="font-serif text-3xl text-main tracking-tight">Leather Care</h3>
+                <p class="text-[10px] uppercase tracking-[.2em] font-bold text-muted mt-3">18 Articles</p>
+            </a>
+
+            <a href="#" class="cat-box py-16 text-center cursor-pointer block border-token">
+                <i class="bi bi-snow text-3xl mb-4 text-yellow-600 block"></i>
+                <h3 class="font-serif text-3xl text-main tracking-tight">Fur Storage</h3>
+                <p class="text-[10px] uppercase tracking-[.2em] font-bold text-muted mt-3">12 Articles</p>
+            </a>
+
+            <a href="#" class="cat-box py-16 text-center cursor-pointer block border-token lg:border-r-0">
+                <i class="bi bi-gem text-3xl mb-4 text-yellow-600 block"></i>
+                <h3 class="font-serif text-3xl text-main tracking-tight">Hardware</h3>
+                <p class="text-[10px] uppercase tracking-[.2em] font-bold text-muted mt-3">9 Articles</p>
+            </a>
+
+        </div>
+    </section>
+
+    <!-- ======================================
+     5. TIPS HIGHLIGHT
+====================================== -->
+    <section class="py-24 lg:py-36 bg-cream-token reveal w-full overflow-hidden">
+        <div class="container mx-auto px-6 lg:px-12 flex flex-col lg:flex-row items-center gap-14 lg:gap-20">
+            
+            <div class="w-full lg:w-1/3">
+                <span class="text-yellow-600 uppercase tracking-[.3em] text-[10px] font-bold block mb-4">Conservator Tip</span>
+                <h3 class="font-serif text-4xl lg:text-5xl text-main mb-6 leading-tight">Prolonging Your <br>Archive Core.</h3>
+                <p class="text-muted mb-8 leading-relaxed text-sm lg:text-base">Simple, uncompromised rules our head restorer insists every client follows upon retrieving their restored garments.</p>
+                <div class="flex gap-3">
+                    <button class="w-10 h-10 border border-token flex justify-center items-center rounded-full text-main hover:bg-[#2E2218] hover:text-[#D4AF37] hover:border-[#2E2218] transition-colors"><i class="bi bi-chevron-left"></i></button>
+                    <button class="w-10 h-10 border border-token flex justify-center items-center rounded-full text-main hover:bg-[#2E2218] hover:text-[#D4AF37] hover:border-[#2E2218] transition-colors"><i class="bi bi-chevron-right"></i></button>
+                </div>
+            </div>
+
+            <div class="w-full lg:w-2/3">
+                <div class="bg-secondary-token p-10 md:p-14 lg:p-20 shadow-xl border border-token relative group">
+                    <i class="bi bi-info-circle text-[8rem] absolute -right-6 -top-6 opacity-[0.03] text-main pointer-events-none group-hover:rotate-12 transition-transform duration-1000"></i>
+                    
+                    <h4 class="font-serif text-3xl md:text-4xl text-main mb-6 leading-relaxed">"Never store a leather jacket wrapped in plastic. Trapped ambient humidity absolutely destroys the structural integrity. Use highly breathable cotton canvas exclusively."</h4>
+                    
+                    <div class="flex items-center gap-4 mt-10">
+                        <div class="w-12 h-12 rounded-full overflow-hidden border border-token bg-[#2E2218] flex items-center justify-center font-serif text-yellow-400">J.W</div>
+                        <div>
+                            <p class="text-xs uppercase tracking-widest font-bold text-main">Julian Waverly</p>
+                            <p class="text-[10px] uppercase tracking-widest font-bold text-yellow-600 mt-1">Lead Leather Conservator</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ======================================
+     6. SUBSCRIBE CTA (REDESIGNED)
+====================================== -->
+    <section class="py-24 bg-cream-token w-full reveal overflow-hidden border-t border-token">
+        
+
+
+        <div class="container mx-auto px-6 lg:px-12 relative z-10">
+            <div class="max-w-4xl mx-auto text-center border border-token bg-cream-token p-10 md:p-16 lg:p-20 shadow-xl">
+                <i class="bi bi-envelope-open text-4xl text-yellow-600 mb-6 block"></i>
+                <h2 class="font-serif text-4xl md:text-5xl text-main leading-tight mb-6">Gain Inner Circle Access.</h2>
+                <p class="text-muted leading-relaxed mb-10 max-w-lg mx-auto text-sm md:text-base">We issue a bi-monthly manifesto covering rare garment drops, structural repair theory, and invitations to our physical trunk shows. Be the first to know.</p>
+                
+                <form class="flex flex-col md:flex-row items-stretch gap-0 w-full max-w-xl mx-auto border border-token focus-within:border-yellow-600 transition-colors p-1" onsubmit="return false">
+                    <input type="email" placeholder="Enter Your Email Address..." class="w-full bg-transparent text-main placeholder-muted px-6 py-4 text-sm font-bold outline-none border-none sub-input-reset">
+                    <button type="submit" class="bg-[#2E2218] text-[#f8f5f2] hover:bg-yellow-600 transition-colors uppercase px-10 py-4 text-[10px] tracking-[.3em] font-bold shadow-sm whitespace-nowrap">Join</button>
+                </form>
+            </div>
+        </div>
+
+        <style>
+            @keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-100%); } }
+            .sub-input-reset { border-bottom: none !important; font-size: 0.875rem !important; padding-bottom: 1rem !important;}
+            .sub-input-reset:focus { border-color: transparent !important; }
+        </style>
+    </section>
+
+    <!-- ======================================
+     FOOTER
+====================================== -->    <footer style="background-color:#2E2218; color:#f8f5f2;" class="pt-24 pb-8">
+        <div class="container mx-auto px-6 lg:px-12">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-y-12 gap-x-8 mb-20 text-center md:text-left">
+                <div class="space-y-5 flex flex-col items-center md:items-start">
+                    <h4 class="font-serif text-xl border-b border-yellow-600/20 pb-2 fw w-full">Brand Info</h4>
+                    <a href="index.html"
+                        class="font-serif text-2xl tracking-tighter flex items-center justify-center md:justify-start gap-3 fw">
+                        <span
+                            class="w-8 h-8 rounded-full border border-yellow-400 flex items-center justify-center text-xs text-yellow-400">R</span>
+                        REGENERATE
+                    </a>
+                    <p class="fw-40 text-sm leading-relaxed">Excellence in restoration since 1984. Preserving your most
+                        cherished vintage leather and fur heirlooms with ethical precision.</p>
+                    <p class="text-yellow-400 italic text-sm font-serif">"Preserving Heritage Hides."</p>
+                </div>
+
+                <div>
+                    <h4 class="font-serif text-xl mb-7 border-b border-yellow-600/20 pb-2 fw">Services</h4>
+                    <ul class="space-y-3 text-sm fw-70 flex flex-col items-center md:items-start">
+                        <li><a href="Services.html"
+                                class="hover:text-yellow-400 transition-colors flex items-center gap-2"><span>·</span>
+                                Leather</a></li>
+                        <li><a href="Services.html"
+                                class="hover:text-yellow-400 transition-colors flex items-center gap-2"><span>·</span>
+                                Fur Repair</a></li>
+                        <li><a href="Services.html"
+                                class="hover:text-yellow-400 transition-colors flex items-center gap-2"><span>·</span>
+                                Cleaning</a></li>
+                        <li><a href="Services.html"
+                                class="hover:text-yellow-400 transition-colors flex items-center gap-2"><span>·</span>
+                                Refinishing</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-serif text-xl mb-7 border-b border-yellow-600/20 pb-2 fw">Quick Links</h4>
+                    <ul class="space-y-3 text-sm fw-70 flex flex-col items-center md:items-start">
+                        <li><a href="index.html"
+                                class="hover:text-yellow-400 transition-colors flex items-center gap-2"><span>·</span>
+                                Home</a></li>
+                        <li><a href="About.html"
+                                class="hover:text-yellow-400 transition-colors flex items-center gap-2"><span>·</span>
+                                About</a></li>
+                        <li><a href="Services.html"
+                                class="hover:text-yellow-400 transition-colors flex items-center gap-2"><span>·</span>
+                                Services</a></li>
+                        <li><a href="Gallery.html"
+                                class="hover:text-yellow-400 transition-colors flex items-center gap-2"><span>·</span>
+                                Gallery</a></li>
+                        <li><a href="Blog.html"
+                                class="hover:text-yellow-400 transition-colors flex items-center gap-2"><span>·</span>
+                                Blog</a></li>
+                        <li><a href="contact.html"
+                                class="hover:text-yellow-400 transition-colors flex items-center gap-2"><span>·</span>
+                                Contact</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-serif text-xl mb-7 border-b border-yellow-600/20 pb-2 fw">Contact</h4>
+                    <ul class="space-y-4 text-sm fw-70 flex flex-col items-center md:items-start">
+                        <li class="flex flex-col md:flex-row items-center md:items-start gap-1 md:gap-3">
+                            <span class="text-yellow-400"><i class="bi bi-geo-alt"></i></span>
+                            <span>123 Heritage Lane,<br>London, UK W1S 2LY</span>
+                        </li>
+                        <li class="flex flex-col md:flex-row items-center md:items-start gap-1 md:gap-3">
+                            <span class="text-yellow-400"><i class="bi bi-telephone"></i></span>
+                            <span>+44 20 7946 0123</span>
+                        </li>
+                        <li class="flex flex-col md:flex-row items-center md:items-start gap-1 md:gap-3">
+                            <span class="text-yellow-400"><i class="bi bi-envelope"></i></span>
+                            <span>atelier@regenerate.com</span>
+                        </li>
+                    </ul>
+                    <div class="flex justify-center md:justify-start gap-6 mt-8">
+                        <a href="contact.html"
+                            class="w-10 h-10 rounded-full border border-yellow-400/30 flex items-center justify-center text-yellow-400 hover:bg-yellow-400 hover:text-[#2E2218] transition-all duration-300"><i
+                                class="bi bi-instagram"></i></a>
+                        <a href="contact.html"
+                            class="w-10 h-10 rounded-full border border-yellow-400/30 flex items-center justify-center text-yellow-400 hover:bg-yellow-400 hover:text-[#2E2218] transition-all duration-300"><i
+                                class="bi bi-twitter-x"></i></a>
+                        <a href="contact.html"
+                            class="w-10 h-10 rounded-full border border-yellow-400/30 flex items-center justify-center text-yellow-400 hover:bg-yellow-400 hover:text-[#2E2218] transition-all duration-300"><i
+                                class="bi bi-facebook"></i></a>
+                    </div>
+                </div>
+
+            </div>
+
+            <div
+                class="pt-10 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4 text-[10px] uppercase tracking-widest fw-20 text-center">
+                <p>&copy; 2026 Ethical Leather Restoration. All Rights Reserved.</p>
+                <div class="flex gap-8">
+                    <a href="contact.html" class="hover:text-yellow-400 transition-colors">Privacy Policy</a>
+                    <span>|</span>
+                    <a href="contact.html" class="hover:text-yellow-400 transition-colors">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JAVASCRIPT -->
+    <script>
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => { navbar.classList.toggle('shadow-2xl', window.scrollY > 50); });
+
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobLinks = document.querySelectorAll('.mob-link');
+        let menuOpen = false;
+
+        function openMenu() {
+            menuOpen = true;
+            if (navbar) navbar.classList.add('menu-open');
+            if (mobileMenu) {
+                mobileMenu.classList.remove('opacity-0', 'invisible');
+                mobileMenu.classList.add('opacity-100', 'visible');
+            }
+            document.body.style.overflow = 'hidden';
+            mobLinks.forEach((link, i) => {
+                setTimeout(() => {
+                    link.style.opacity = '1';
+                    link.style.transform = 'translateY(0)';
+                }, 120 + i * 80);
+            });
+        }
+
+        function closeMenuFn() {
+            menuOpen = false;
+            if (navbar) navbar.classList.remove('menu-open');
+            if (mobileMenu) {
+                mobileMenu.classList.add('opacity-0', 'invisible');
+                mobileMenu.classList.remove('opacity-100', 'visible');
+            }
+            document.body.style.overflow = '';
+            mobLinks.forEach(link => {
+                link.style.opacity = '0';
+                link.style.transform = 'translateY(1.5rem)';
+            });
+        }
+
+        menuBtn.addEventListener('click', () => { menuOpen ? closeMenuFn() : openMenu(); });
+        mobLinks.forEach(link => link.addEventListener('click', closeMenuFn));
+
+        window.addEventListener('resize', () => {
+            if (window.innerWidth >= 1024 && menuOpen) {
+                closeMenuFn();
+            }
+        });
+
+        const ro = new IntersectionObserver((entries) => {
+            entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); ro.unobserve(e.target); } });
+        }, { threshold: 0.08 });
+        document.querySelectorAll('.reveal').forEach(el => ro.observe(el));
+
+        function toggleDir() {
+            const html = document.documentElement;
+            const currentDir = html.getAttribute('dir') || 'ltr';
+            const newDir = currentDir === 'rtl' ? 'ltr' : 'rtl';
+            html.setAttribute('dir', newDir);
+            html.setAttribute('lang', newDir === 'rtl' ? 'ar' : 'en');
+            localStorage.setItem('dir', newDir);
+        }
+
+        /* Init direction from storage */
+        const savedDir = localStorage.getItem('dir');
+        if (savedDir) {
+            document.documentElement.setAttribute('dir', savedDir);
+            document.documentElement.setAttribute('lang', savedDir === 'rtl' ? 'ar' : 'en');
+        }
+
+
+
+        const themeBtns = document.querySelectorAll('.theme-toggle');
+        const root = document.documentElement;
+
+        function applyTheme(dark) {
+            root.classList.toggle('dark', dark);
+            themeBtns.forEach(btn => {
+                btn.innerHTML = dark ? '<i class="bi bi-sun"></i>' : '<i class="bi bi-moon-stars"></i>';
+            });
+        }
+
+        themeBtns.forEach(btn => btn.addEventListener('click', () => {
+            const isDark = !root.classList.contains('dark');
+            applyTheme(isDark);
+            localStorage.setItem('theme', isDark ? 'dark' : 'light');
+        }));
+
+        applyTheme(localStorage.getItem('theme') === 'dark');
+    </script>
+</body>
+
+</html>

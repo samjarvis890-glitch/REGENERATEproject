@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>REGENERATE | Member Access</title>
+    <link rel="icon" type="image/png" href="favicon.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    screens: { 'lg': '1024px' },
+                    fontFamily: {
+                        sans: ['DM Sans', 'sans-serif'],
+                        serif: ['Cormorant Garamond', 'serif'],
+                    },
+                    colors: {
+                        cream: '#f8f5f2',
+                        leather: '#8B5E3C',
+                        gold: '#D4AF37',
+                        charcoal: '#2b2b2b',
+                        espresso: '#2E2218',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* TOKENS */
+        :root { --cream: #f8f5f2; --charcoal: #2b2b2b; --espresso: #2E2218; --leather: #8B5E3C; --secondary: #EAE4DD; --text-main: #2b2b2b; --text-muted: rgba(43, 43, 43, 0.6); --border: rgba(43, 43, 43, 0.12); --surface-raise: #ffffff; }
+        .dark { --cream: #0e0e0e; --charcoal: #f0ece8; --espresso: #070503; --leather: #6b3e1e; --secondary: #1a1714; --text-main: #f0ece8; --text-muted: rgba(240, 236, 232, 0.55); --border: rgba(212, 175, 55, 0.25); --surface-raise: #1c1813; }
+
+        * { box-sizing: border-box; }
+        body { background-color: var(--espresso); font-family: 'DM Sans', sans-serif; transition: background-color 0.45s ease; min-height: 100vh; overflow-x: hidden; }
+        
+        .font-serif { font-family: 'Cormorant Garamond', serif; }
+
+        #navbar {
+            background-color: #ffffff !important;
+            border-bottom: 1px solid var(--border);
+        }
+        .dark #navbar {
+            background-color: #2E2218 !important;
+            border-bottom: 1px solid rgba(212, 175, 55, .15);
+        }
+
+        .nav-link {
+            position: relative;
+            color: var(--text-main);
+            font-size: 0.75rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            transition: color .4s;
+        }
+        .dark .nav-link {
+            color: #f8f5f2;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: #D4AF37;
+            transition: width .4s cubic-bezier(.25, .46, .45, .94);
+        }
+
+        .nav-link:hover {
+            color: #D4AF37;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        /* ===== HAMBURGER ===== */
+        .h-line { transition: all .4s cubic-bezier(.4, 0, .2, 1); }
+        .menu-open .l1 { transform: translateY(8px) rotate(45deg); }
+        .menu-open .l2 { opacity: 0; transform: translateX(-20px); }
+        .menu-open .l3 { transform: translateY(-8px) rotate(-45deg); width: 2rem !important; }
+        #mobile-menu { transition: opacity .5s ease, visibility .5s ease; }
+
+        .mob-link {
+            opacity: 0;
+            transform: translateY(1.5rem);
+        }
+
+        /* AUTH UI STYLES */
+        .auth-wrapper { position: relative; min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 6rem 1.5rem; }
+        
+        .auth-bg { position: fixed; inset: 0; z-index: 0; pointer-events: none; }
+        .auth-bg img { width: 100%; height: 100%; object-fit: cover; filter: blur(25px) brightness(0.4) saturate(1.2); transform: scale(1.1); }
+        .auth-bg::after { content: ''; position: absolute; inset: 0; background: radial-gradient(circle at center, transparent 0%, #2E2218 100%); mix-blend-mode: multiply; }
+
+        .auth-card { position: relative; z-index: 10; width: 100%; max-width: 900px; display: flex; flex-direction: column; background: var(--cream); border: 1px solid var(--border); box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5); overflow: hidden; margin: 2rem 0; }
+        @media (min-width: 1024px) { .auth-card { flex-direction: row; margin: 0; } }
+
+        .auth-info { width: 100%; background: #2E2218; padding: 2.5rem 1.75rem; color: #f8f5f2; display: flex; flex-direction: column; justify-content: space-between; border-right: none; border-bottom: 1px solid rgba(212,175,55,0.2); }
+        @media (min-width: 1024px) { .auth-info { width: 40%; padding: 4rem 3rem; border-right: 1px solid rgba(212,175,55,0.2); border-bottom: none; } }
+
+        .auth-form-pane { width: 100%; background: var(--cream); padding: 2.5rem 1.5rem; display: flex; flex-direction: column; justify-content: center; }
+        @media (min-width: 1024px) { .auth-form-pane { width: 60%; padding: 4rem 3.5rem; } }
+
+        .auth-input { width: 100%; background: var(--surface-raise); border: 1px solid var(--border); padding: 1rem 1.25rem; font-family: 'DM Sans', sans-serif; font-size: 0.8rem; color: var(--text-main); outline: none; border-radius: 2px; transition: border-color .3s; }
+        .auth-input:focus { border-color: #D4AF37; }
+        .auth-input::placeholder { color: var(--text-muted); }
+
+        .auth-btn { background: #D4AF37; color: #2E2218; width: 100%; padding: 1.25rem; font-family: 'DM Sans'; text-transform: uppercase; letter-spacing: 0.25em; font-size: 0.75rem; font-weight: bold; border: none; transition: transform 0.4s, background 0.4s; cursor: pointer; border-radius: 2px;}
+        .auth-btn:hover { background: #E1C159; transform: translateY(-2px); box-shadow: 0 10px 20px -10px rgba(212,175,55,0.5); }
+
+        .fw { color: #f8f5f2 !important; }
+        .text-main { color: var(--text-main) !important; }
+        .text-muted { color: var(--text-muted) !important; }
+        .text-main { color: var(--text-main); }
+        .text-muted { color: var(--text-muted); }
+        [dir="rtl"] .space-x-4>*+* {
+            margin-right: 1rem;
+            margin-left: 0;
+        }
+
+        [dir="rtl"] #home-dd {
+            left: auto;
+            right: 0;
+        }
+
+        [dir="rtl"] .ml-auto {
+            margin-right: auto !important;
+            margin-left: 0 !important;
+        }
+
+        [dir="rtl"] .mr-auto {
+            margin-left: auto !important;
+            margin-right: 0 !important;
+        }
+
+        [dir="rtl"] .text-left,
+        [dir="rtl"] .lg\:text-left,
+        [dir="rtl"] .md\:text-left {
+            text-align: right !important;
+        }
+
+        [dir="rtl"] .text-right,
+        [dir="rtl"] .lg\:text-right,
+        [dir="rtl"] .md\:text-right {
+            text-align: left !important;
+        }
+
+        [dir="rtl"] .pr-6 {
+            padding-left: 1.5rem !important;
+            padding-right: 0 !important;
+        }
+
+        [dir="rtl"] .pl-6 {
+            padding-right: 1.5rem !important;
+            padding-left: 0 !important;
+        } .dark img:not(.grayscale) { opacity: 0.9 !important; }
+        .dark .hover\:border-yellow-400:hover { border-color: #D4AF37 !important; }
+        .dark .text-main, .dark p, .dark h1, .dark h2, .dark h3, .dark h4, .dark span, .dark label, .dark li { color: var(--text-main); }
+        
+        @media (max-width: 767px) {
+            section { padding-top: 4rem !important; padding-bottom: 4rem !important; }
+        }
+    </style>
+    </head>
+
+<body>
+
+    <!-- Cinematic Blurred Background -->
+    <div class="auth-bg">
+        <img src="Assert/images/login_bg.png" alt="Login Background">
+    </div>
+
+    <!-- NAVBAR -->
+    <nav id="navbar" class="fixed w-full z-[100] py-4 transition-all duration-500">
+        <div class="w-full px-6 lg:px-12 flex items-center justify-between">
+
+            <!-- Logo -->
+            <a href="index.html"
+                class="font-serif text-2xl lg:text-3xl text-main dark:text-[#f8f5f2] tracking-tighter flex items-center gap-2 group">
+                <span
+                    class="w-8 h-8 rounded-full border border-yellow-500 flex items-center justify-center text-xs text-yellow-500 group-hover:bg-yellow-400 group-hover:text-[#2E2218] transition-all">R</span>
+                REGENERATE
+            </a>
+
+            <!-- Desktop Icons -->
+            <div class="hidden lg:flex items-center gap-7 text-main dark:text-[#f8f5f2] relative">
+                <button title="Toggle Theme" class="theme-toggle hover:text-yellow-400 transition-all hover:scale-110 cursor-pointer">
+                    <i class="bi bi-moon-stars"></i>
+                </button>
+                
+                <button onclick="toggleDir()" title="Toggle RTL/LTR"
+                    class="hover:text-yellow-400 transition-all hover:scale-110 cursor-pointer">
+                    <i class="fa-solid fa-right-left"></i>
+                </button>
+
+                <a href="Login.html" class="px-5 py-2 bg-gold text-espresso text-[10px] uppercase tracking-widest font-bold rounded-sm hover:bg-charcoal hover:text-white dark:hover:bg-white transition-all duration-300">Login</a>
+            </div>
+
+            <!-- Hamburger -->
+            <button id="menu-btn" class="lg:hidden flex flex-col gap-[7px] focus:outline-none p-2 z-[200] relative">
+                <span class="h-line l1 w-8 h-[1px] bg-yellow-500 block"></span>
+                <span class="h-line l2 w-8 h-[1px] bg-yellow-500 block"></span>
+                <span class="h-line l3 w-5 h-[1px] bg-yellow-500 block ml-auto"></span>
+            </button>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu"
+            class="fixed inset-0 bg-[#2E2218] z-[150] opacity-0 invisible overflow-y-auto">
+            <div class="min-h-full flex flex-col items-center justify-center py-24 px-6 gap-0">
+
+                <!-- Nav Links -->
+                <nav class="flex flex-col items-center gap-2 w-full">
+                    <a href="index.html"
+                        class="mob-link font-serif text-3xl fw opacity-0 translate-y-6 transition-all duration-300 hover:text-yellow-400 py-2">Home 1</a>
+                    <a href="Home2.html"
+                        class="mob-link font-serif text-3xl fw opacity-0 translate-y-6 transition-all duration-300 hover:text-yellow-400 py-2">Home 2</a>
+                    <a href="About.html"
+                        class="mob-link font-serif text-2xl fw opacity-0 translate-y-6 transition-all duration-300 hover:text-yellow-400 py-2">About</a>
+                    <a href="Services.html"
+                        class="mob-link font-serif text-2xl fw opacity-0 translate-y-6 transition-all duration-300 hover:text-yellow-400 py-2">Services</a>
+                    <a href="Process.html"
+                        class="mob-link font-serif text-2xl fw opacity-0 translate-y-6 transition-all duration-300 hover:text-yellow-400 py-2">Process</a>
+                   
+                    <a href="Gallery.html"
+                        class="mob-link font-serif text-2xl fw opacity-0 translate-y-6 transition-all duration-300 hover:text-yellow-400 py-2">Gallery</a>
+                    <a href="Blog.html"
+                        class="mob-link font-serif text-2xl fw opacity-0 translate-y-6 transition-all duration-300 hover:text-yellow-400 py-2">Blog</a>
+                    <a href="contact.html"
+                        class="mob-link font-serif text-2xl fw opacity-0 translate-y-6 transition-all duration-300 hover:text-yellow-400 py-2">Contact</a>
+                </nav>
+
+                <!-- Auth row (Mobile) -->
+                <div class="mob-link opacity-0 translate-y-6 transition-all duration-300 flex gap-4 w-full px-6 mb-8 mt-8">
+                    <a href="Login.html" class="flex-1 py-4 border border-yellow-600/30 text-yellow-400 text-center uppercase tracking-widest text-[10px] fw-70 hover:bg-yellow-400 hover:text-espresso transition-all duration-500 rounded-sm">Login</a>
+                    <a href="Register.html" class="flex-1 py-4 bg-yellow-600 text-espresso text-center uppercase tracking-widest text-[10px] font-bold hover:bg-white transition-all duration-500 rounded-sm">Register</a>
+                </div>
+
+                <!-- Divider -->
+                <div class="mob-link opacity-0 translate-y-6 transition-all duration-300 w-32 h-[1px] bg-yellow-600/25 my-4"></div>
+
+                <!-- Utility Icons Row -->
+                <div class="mob-link opacity-0 translate-y-6 transition-all duration-300 flex items-center gap-6 text-yellow-400">
+                    <button class="theme-toggle flex flex-col items-center gap-1 hover:text-white transition-colors cursor-pointer" title="Toggle Theme">
+                        <i class="bi bi-moon-stars text-xl"></i>
+                        <span class="text-[8px] uppercase tracking-widest fw-40">Theme</span>
+                    </button>
+                    <div class="w-[1px] h-8 bg-yellow-600/25"></div>
+                    <button onclick="toggleDir()" class="flex flex-col items-center gap-1 hover:text-white transition-colors cursor-pointer" title="Toggle RTL/LTR">
+                        <i class="bi bi-arrows-expand-vertical text-xl"></i>
+                        <span class="text-[8px] uppercase tracking-widest fw-40">RTL</span>
+                    </button>
+                    <div class="w-[1px] h-8 bg-yellow-600/25"></div>
+                    <a href="contact.html" class="flex flex-col items-center gap-1 hover:text-white transition-colors">
+                        <i class="bi bi-instagram text-xl"></i>
+                        <span class="text-[8px] uppercase tracking-widest fw-40">Insta</span>
+                    </a>
+                    <a href="contact.html" class="flex flex-col items-center gap-1 hover:text-white transition-colors">
+                        <i class="bi bi-facebook text-xl"></i>
+                        <span class="text-[8px] uppercase tracking-widest fw-40">FB</span>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </nav>
+
+    <!-- MAIN WRAPPER -->
+    <div class="auth-wrapper">
+        
+        <!-- Login Central Card -->
+        <div class="auth-card">
+            
+            <!-- Information Bar (Left) -->
+            <div class="auth-info">
+                <div>
+                    <h2 class="font-serif text-3xl md:text-5xl leading-none mb-6 text-yellow-400">Welcome <br>Back.</h2>
+                    <p class="text-[10px] uppercase tracking-widest opacity-60 font-bold mb-8 block border-b border-yellow-600/30 w-fit pb-1">Private Access</p>
+                    <p class="opacity-80 text-sm md:text-base leading-relaxed font-light mt-10">Access your private portal to track the structural resurrection and archival updates of your heritage garments.</p>
+                </div>
+                
+                <div class="mt-16 md:mt-24">
+                    <p class="text-[10px] uppercase tracking-[.2em] opacity-40 font-bold">New Collector?</p>
+                    <a href="Register.html" class="inline-flex items-center gap-3 text-sm text-yellow-400 font-bold tracking-widest mt-3 hover:text-[#f8f5f2] transition-colors group">
+                        Initiate Application <i class="bi bi-arrow-right group-hover:translate-x-2 transition-transform"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Form Pane (Right) -->
+            <div class="auth-form-pane">
+                <div class="mb-10 text-center md:text-left">
+                    <h3 class="font-serif text-3xl md:text-4xl text-main mb-2">Member Portal</h3>
+                    <p class="text-muted text-xs">Enter your encrypted credentials to proceed.</p>
+                </div>
+
+                <form class="space-y-6" onsubmit="return false">
+                    <div class="relative">
+                        <input type="email" class="auth-input" placeholder="Registered Email Address" required>
+                    </div>
+
+                    <div class="relative">
+                        <input type="password" class="auth-input" placeholder="Secure Password" required>
+                    </div>
+
+                    <div class="flex justify-between items-center text-xs mt-4">
+                        <label class="flex items-center gap-2 cursor-pointer text-muted hover:text-main transition-colors">
+                            <input type="checkbox" class="accent-yellow-600 w-4 h-4 cursor-pointer"> Remember Access
+                        </label>
+                        <a href="contact.html" class="text-muted uppercase tracking-widest text-[9px] font-bold border-b border-transparent hover:border-yellow-600 hover:text-main transition-colors">Forgot Password ?</a>
+                    </div>
+
+                    <button type="submit" class="auth-btn mt-10 shadow-xl">Authenticate</button>
+                    
+                    <div class="mt-10">
+                        <div class="relative flex items-center justify-center">
+                            <div class="absolute inset-0 flex items-center">
+                                <span class="w-full border-t border-token"></span>
+                            </div>
+                            <span class="relative bg-cream-token px-4 text-[10px] uppercase tracking-widest text-muted font-bold">or continue with</span>
+                        </div>
+
+                        <div class="flex justify-center gap-6 mt-8">
+                            <button title="Google" class="w-12 h-12 rounded-full border border-token flex items-center justify-center text-main hover:bg-[#2E2218] hover:text-[#D4AF37] hover:border-[#2E2218] transition-all duration-300">
+                                <i class="bi bi-google"></i>
+                            </button>
+                            <button title="Apple" class="w-12 h-12 rounded-full border border-token flex items-center justify-center text-main hover:bg-[#2E2218] hover:text-[#D4AF37] hover:border-[#2E2218] transition-all duration-300">
+                                <i class="bi bi-apple"></i>
+                            </button>
+                            <button title="Instagram" class="w-12 h-12 rounded-full border border-token flex items-center justify-center text-main hover:bg-[#2E2218] hover:text-[#D4AF37] hover:border-[#2E2218] transition-all duration-300">
+                                <i class="bi bi-instagram"></i>
+                            </button>
+                        </div>
+
+                        <div class="mt-10 text-center">
+                            <p class="text-xs text-muted">Don't have an account?</p>
+                            <a href="Register.html" class="inline-block mt-2 text-[10px] uppercase tracking-[.2em] font-bold text-yellow-600 hover:text-main transition-colors border-b border-yellow-600/30 pb-1">Create New Account <i class="bi bi-arrow-right ml-2 text-xs"></i></a>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- JAVASCRIPT -->
+    <script>
+        // Hamburger Menu Logic
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const navbar = document.getElementById('navbar');
+        const mobLinks = document.querySelectorAll('.mob-link');
+        let menuOpen = false;
+
+        function openMenu() {
+            menuOpen = true;
+            navbar.classList.add('menu-open');
+            mobileMenu.classList.remove('opacity-0', 'invisible');
+            mobileMenu.classList.add('opacity-100', 'visible');
+            document.body.style.overflow = 'hidden';
+            mobLinks.forEach((link, i) => {
+                setTimeout(() => {
+                    link.style.opacity = '1';
+                    link.style.transform = 'translateY(0)';
+                }, 120 + i * 80);
+            });
+        }
+
+        function closeMenuFn() {
+            menuOpen = false;
+            navbar.classList.remove('menu-open');
+            mobileMenu.classList.add('opacity-0', 'invisible');
+            mobileMenu.classList.remove('opacity-100', 'visible');
+            document.body.style.overflow = '';
+            mobLinks.forEach(link => {
+                link.style.opacity = '0';
+                link.style.transform = 'translateY(1.5rem)';
+            });
+        }
+
+        menuBtn.addEventListener('click', () => { menuOpen ? closeMenuFn() : openMenu(); });
+        mobLinks.forEach(link => link.addEventListener('click', closeMenuFn));
+
+        window.addEventListener('resize', () => {
+            if (window.innerWidth >= 1024 && menuOpen) {
+                closeMenuFn();
+            }
+        });
+
+        // Core Site Scripts
+        function toggleDir() {
+            const html = document.documentElement;
+            const currentDir = html.getAttribute('dir') || 'ltr';
+            const newDir = currentDir === 'rtl' ? 'ltr' : 'rtl';
+            html.setAttribute('dir', newDir);
+            html.setAttribute('lang', newDir === 'rtl' ? 'ar' : 'en');
+            localStorage.setItem('dir', newDir);
+            if(menuOpen) closeMenuFn();
+        }
+
+        /* Init direction from storage */
+        const savedDir = localStorage.getItem('dir');
+        if (savedDir) {
+            document.documentElement.setAttribute('dir', savedDir);
+            document.documentElement.setAttribute('lang', savedDir === 'rtl' ? 'ar' : 'en');
+        }
+
+        const themeBtns = document.querySelectorAll('.theme-toggle');
+        const root = document.documentElement;
+
+        function applyTheme(dark) {
+            root.classList.toggle('dark', dark);
+            themeBtns.forEach(btn => {
+                const icon = dark ? '<i class="bi bi-sun"></i>' : '<i class="bi bi-moon-stars"></i>';
+                const label = btn.querySelector('span');
+                if (label) {
+                    btn.innerHTML = icon + '<span class="text-[8px] uppercase tracking-widest fw-40">' + (dark ? 'Light' : 'Dark') + '</span>';
+                } else {
+                    btn.innerHTML = icon;
+                }
+            });
+        }
+
+        themeBtns.forEach(btn => btn.addEventListener('click', () => {
+            const isDark = !root.classList.contains('dark');
+            applyTheme(isDark);
+            localStorage.setItem('theme', isDark ? 'dark' : 'light');
+            if(menuOpen) closeMenuFn();
+        }));
+        
+        applyTheme(localStorage.getItem('theme') === 'dark');
+    </script>
+</body>
+
+</html>

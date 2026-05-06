@@ -1,0 +1,1391 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>REGENERATE | Professional Restoration Services</title>
+        <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    screens: { 'lg': '1024px' },
+                    fontFamily: {
+                        sans: ['DM Sans', 'sans-serif'],
+                        serif: ['Cormorant Garamond', 'serif'],
+                    },
+                    colors: {
+                        cream: '#f8f5f2',
+                        leather: '#8B5E3C',
+                        gold: '#D4AF37',
+                        charcoal: '#2b2b2b',
+                        espresso: '#2E2218',
+                    },
+                    animation: { 'fade-in-up': 'fadeInUp 0.8s ease-out forwards' },
+                    keyframes: {
+                        fadeInUp: { '0%': { opacity: '0', transform: 'translateY(30px)' }, '100%': { opacity: '1', transform: 'translateY(0)' } }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap');
+
+        /* TOKENS */
+        :root {
+            --cream: #f8f5f2;
+            --charcoal: #2b2b2b;
+            --espresso: #2E2218;
+            --leather: #8B5E3C;
+            --secondary: #EAE4DD;
+            --text-main: #2b2b2b;
+            --text-muted: rgba(43, 43, 43, 0.6);
+            --border: rgba(43, 43, 43, 0.12);
+            --surface-raise: #ffffff;
+        }
+
+        .dark {
+            --cream: #0e0e0e;
+            --charcoal: #f0ece8;
+            --espresso: #070503;
+            --leather: #6b3e1e;
+            --secondary: #1a1714;
+            --text-main: #f0ece8;
+            --text-muted: rgba(240, 236, 232, 0.55);
+            --border: rgba(212, 175, 55, 0.25);
+            --surface-raise: #1c1813;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--cream);
+            color: var(--text-main);
+            font-family: 'DM Sans', sans-serif;
+            transition: background-color 0.45s ease, color 0.45s ease;
+            overflow-x: hidden;
+        }
+
+        .font-serif {
+            font-family: 'Cormorant Garamond', serif;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4 {
+            color: var(--text-main);
+        }
+
+        section p,
+        section li,
+        section span:not(.text-yellow-400):not(.text-white):not([class*="text-yellow"]):not([class*="fw"]),
+        section label {
+            color: var(--text-main);
+        }
+
+        /* FOOTER */
+        footer {
+            color: #f8f5f2;
+        }
+
+        footer h4,
+        footer p,
+        footer li,
+        footer a,
+        footer span {
+            color: #ffffff !important;
+        }
+
+        footer .fw-70 {
+            color: #ffffff !important;
+        }
+
+        footer .fw-40 {
+            color: rgba(255, 255, 255, .60) !important;
+        }
+
+        footer .text-white {
+            color: rgba(255, 255, 255, .30) !important;
+        }
+
+        footer .text-yellow-400,
+        footer .text-yellow-400 i {
+            color: #D4AF37 !important;
+        }
+
+        footer a:hover {
+            color: #D4AF37 !important;
+        }
+
+        /* ALWAYS DARK */
+        .surface-dark {
+            background-color: var(--espresso) !important;
+            color: #f8f5f2 !important;
+        }
+
+        .surface-dark * {
+            color: #f8f5f2;
+        }
+
+        .fw {
+            color: #f8f5f2 !important;
+        }
+
+        .fw-70 {
+            color: rgba(248, 245, 242, .70) !important;
+        }
+
+        .fw-40 {
+            color: rgba(248, 245, 242, .40) !important;
+        }
+
+        .text-white {
+            color: #f8f5f2 !important;
+        }
+
+        .fw-20 { color: rgba(248, 245, 242, .20) !important; }
+        .text-main { color: var(--text-main) !important; }
+        .text-muted { color: var(--text-muted) !important; }
+
+        /* NAVBAR */
+        #navbar {
+            background-color: #ffffff !important;
+            border-bottom: 1px solid var(--border);
+        }
+        .dark #navbar {
+            background-color: #2E2218 !important;
+            border-bottom: 1px solid rgba(212, 175, 55, .15);
+        }
+
+        .nav-link {
+            position: relative;
+            color: var(--text-main);
+            font-size: 0.75rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            transition: color .4s;
+        }
+        .dark .nav-link {
+            color: #f8f5f2;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: #D4AF37;
+            transition: width .4s cubic-bezier(.25, .46, .45, .94);
+        }
+
+        .nav-link:hover {
+            color: #D4AF37;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .h-line {
+            transition: all .4s cubic-bezier(.4, 0, .2, 1);
+        }
+
+        .menu-open .l1 {
+            transform: translateY(8px) rotate(45deg);
+        }
+
+        .menu-open .l2 {
+            opacity: 0;
+            transform: translateX(-20px);
+        }
+
+        .menu-open .l3 {
+            transform: translateY(-8px) rotate(-45deg);
+            width: 2rem !important;
+        }
+
+        /* ===== MOBILE MENU ===== */
+        #mobile-menu {
+            transition: opacity .5s ease, visibility .5s ease;
+            background-color: #2E2218 !important;
+        }
+        #mobile-menu .mob-link, #mobile-menu span, #mobile-menu i {
+            color: #f8f5f2 !important;
+        }
+        #mobile-menu .mob-link:hover {
+            color: #D4AF37 !important;
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(28px);
+            transition: opacity .75s ease, transform .75s ease;
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .bg-cream-token {
+            background-color: var(--cream);
+        }
+
+        .bg-secondary-token {
+            background-color: var(--secondary);
+        }
+
+        .bg-leather-token {
+            background-color: var(--leather);
+        }
+
+        .bg-espresso-token {
+            background-color: var(--espresso);
+        }
+
+        .text-main {
+            color: var(--text-main);
+        }
+
+        .text-muted {
+            color: var(--text-muted);
+        }
+
+        .border-token {
+            border-color: var(--border) !important;
+        }
+
+        /* Modal fields */
+        .field {
+            width: 100%;
+            padding: 1rem 1.25rem;
+            background: rgba(0, 0, 0, .35);
+            border: 1px solid rgba(212, 175, 55, .2);
+            color: #f8f5f2;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 0.8rem;
+            outline: none;
+            border-radius: 2px;
+            transition: border-color .3s;
+        }
+
+        .field::placeholder {
+            color: rgba(248, 245, 242, .45);
+        }
+
+        .field:focus {
+            border-color: #D4AF37;
+        }
+
+        /* RTL */
+        [dir="rtl"] .space-x-4>*+* {
+            margin-right: 1rem;
+            margin-left: 0;
+        }
+
+        [dir="rtl"] #home-dd {
+            left: auto;
+            right: 0;
+        }
+
+        [dir="rtl"] .ml-auto {
+            margin-right: auto !important;
+            margin-left: 0 !important;
+        }
+
+        [dir="rtl"] .mr-auto {
+            margin-left: auto !important;
+            margin-right: 0 !important;
+        }
+
+        [dir="rtl"] .text-left,
+        [dir="rtl"] .lg\:text-left,
+        [dir="rtl"] .md\:text-left {
+            text-align: right !important;
+        }
+
+        [dir="rtl"] .text-right,
+        [dir="rtl"] .lg\:text-right,
+        [dir="rtl"] .md\:text-right {
+            text-align: left !important;
+        }
+
+        [dir="rtl"] .pr-6 {
+            padding-left: 1.5rem !important;
+            padding-right: 0 !important;
+        }
+
+        [dir="rtl"] .pl-6 {
+            padding-right: 1.5rem !important;
+            padding-left: 0 !important;
+        }
+
+        /* ===== SERVICES UNIQUE STYLES ===== */
+
+        /* 2. OVERVIEW ACCORDION */
+        .svc-accordion {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            height: auto;
+            overflow: hidden;
+            border: 1px solid var(--border);
+        }
+
+        @media (min-width: 1150px) {
+            .svc-accordion {
+                flex-direction: row;
+                height: 60vh;
+            }
+        }
+
+        .svc-panel {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            height: 120px; /* Collapsed height for mobile */
+            position: relative;
+            overflow: hidden;
+            border-bottom: 1px solid var(--border);
+            cursor: pointer;
+            background: var(--surface-raise);
+            transition: all 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+            align-items: center;
+            justify-content: center;
+        }
+
+        .svc-panel.active {
+            height: 450px; /* Expanded height to fit content */
+        }
+
+        @media (min-width: 1150px) {
+            .svc-panel {
+                height: 100%;
+                flex: 1;
+                flex-direction: row;
+                border-bottom: none;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .svc-panel:hover {
+                flex: 3;
+            }
+        }
+
+        @media (min-width: 1150px) {
+            .svc-panel {
+                border-bottom: none;
+                border-right: 1px solid var(--border);
+                align-items: flex-start;
+                justify-content: flex-start;
+            }
+
+            .svc-panel:last-child {
+                border-right: none;
+            }
+
+            .svc-panel:hover {
+                flex: 3;
+            }
+        }
+
+        .svc-img {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0;
+            transition: all 0.7s ease;
+            filter: grayscale(100%);
+            pointer-events: none;
+        }
+
+        .svc-panel:hover .svc-img,
+        .svc-panel.active .svc-img {
+            opacity: 0.3; /* Increased for mobile visibility */
+            transform: scale(1.05);
+        }
+
+        @media (min-width: 1150px) {
+            .svc-panel:hover .svc-img {
+                opacity: 0.2;
+            }
+        }
+
+        .svc-title-wrap {
+            position: relative;
+            z-index: 10;
+            transition: opacity 0.3s;
+        }
+
+        .svc-panel:hover .svc-title-wrap,
+        .svc-panel.active .svc-title-wrap {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        @media (min-width: 1150px) {
+            .svc-title-wrap {
+                width: 100%;
+                text-align: center;
+                writing-mode: vertical-lr;
+                transform: rotate(180deg);
+                margin: auto 0;
+                font-size: 2rem;
+                white-space: nowrap;
+            }
+        }
+
+        .svc-content-reveal {
+            position: absolute;
+            inset: 0;
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            opacity: 0;
+            transform: translateY(10px);
+            transition: all 0.5s ease-out;
+            pointer-events: none;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, transparent 100%);
+            z-index: 5;
+        }
+
+        @media (min-width: 1150px) {
+            .svc-content-reveal {
+                padding: 3rem;
+                background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, transparent 80%);
+            }
+        }
+
+        .svc-panel:hover .svc-content-reveal,
+        .svc-panel.active .svc-content-reveal {
+            opacity: 1;
+            transform: translateY(0);
+            pointer-events: auto;
+        }
+
+        .svc-title-hover {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 3rem;
+            color: #fff;
+            line-height: 1.1;
+            margin-bottom: 1rem;
+        }
+
+        .svc-desc-hover {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.875rem;
+            margin-bottom: 1.5rem;
+            max-width: 60%;
+        }
+
+
+
+        /* 5. SPLIT CROSS LINKS */
+        .cross-link {
+            position: relative;
+            overflow: hidden;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid var(--border);
+            background-color: var(--surface-raise);
+            transition: all 0.5s;
+            
+        }
+
+        .cross-link::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: #2E2218; /* Dark espresso for hover bg */
+            transform: scaleY(0);
+            transform-origin: bottom;
+            transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+            z-index: 1;
+        }
+
+        .cross-link:hover::before {
+            transform: scaleY(1);
+        }
+
+        .cross-link img {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0;
+            transition: opacity 0.5s, transform 3s;
+            z-index: 2;
+        }
+
+        .cross-link:hover img {
+            opacity: 0.2;
+            transform: scale(1.1);
+        }
+
+        .cross-text {
+            position: relative;
+            z-index: 10;
+            transition: all 0.5s;
+            color: var(--text-main);
+        }
+
+        .cross-link:hover .cross-text,
+        .cross-link:hover .cross-text * {
+            color: #f8f5f2 !important;
+        }
+
+        /* 6. FAQ ACCORDION */
+        .faq-item {
+            border-bottom: 1px solid var(--border);
+            transition: background-color 0.3s ease;
+        }
+
+        .faq-item:hover {
+            background-color: var(--secondary);
+        }
+
+        .faq-btn {
+            width: 100%;
+            text-align: inherit;
+            padding: 2rem;
+            font-family: 'Cormorant Garamond';
+            font-size: 1.75rem;
+            color: var(--text-main);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: transparent;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+
+        .faq-btn:hover {
+            color: #D4AF37;
+        }
+
+        .faq-ans {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s cubic-bezier(0, 1, 0, 1);
+        }
+
+        .faq-item.active .faq-ans {
+            max-height: 500px;
+        }
+
+        .faq-item.active .bi-plus {
+            transform: rotate(45deg);
+            transition: transform 0.3s;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        ::selection {
+            background: #D4AF37;
+            color: #2E2218;
+        }
+    </style>
+    <link rel="stylesheet" href="rtl-fix.css">
+
+    <style>
+        /* Responsive Spaces fixes and Dark Mode fixes */
+        .dark img:not(.grayscale):not(.svc-img):not(.cross-link img) {
+            opacity: 0.9 !important;
+        }
+        .dark .hover\:border-yellow-400:hover {
+            border-color: #D4AF37 !important;
+        }
+        .dark .text-main, .dark p, .dark h1, .dark h2, .dark h3, .dark h4, .dark span, .dark label, .dark li {
+           color: var(--text-main);
+        }
+        @media (max-width: 767px) {
+            section {
+                padding-top: 4rem !important;
+                padding-bottom: 4rem !important;
+            }
+        }
+    </style>
+        <link rel="icon" type="image/png" href="favicon.png">
+</head>
+
+<body>
+
+    <nav id="navbar" class="fixed w-full z-[100] py-4 transition-all duration-500">
+        <div class="w-full px-6 lg:px-12 flex items-center justify-between">
+
+            <!-- Logo -->
+            <a href="index.html"
+                class="font-serif text-2xl lg:text-3xl text-main dark:text-[#f8f5f2] tracking-tighter flex items-center gap-2 group">
+                <span
+                    class="w-8 h-8 rounded-full border border-yellow-500 flex items-center justify-center text-xs text-yellow-500 group-hover:bg-yellow-400 group-hover:text-[#2E2218] transition-all">R</span>
+                REGENERATE
+            </a>
+
+            <!-- Desktop Nav -->
+            <div class="hidden lg:flex items-center gap-10">
+                <!-- Home dropdown -->
+                <div class="relative group/home">
+                    <button class="nav-link flex items-center gap-1">Home <i
+                            class="bi bi-chevron-down text-[9px]"></i></button>
+                    <div id="home-dd"
+                        class="absolute top-full left-0 mt-4 w-44 bg-[#2E2218] border border-yellow-600/20 opacity-0 invisible group-hover/home:opacity-100 group-hover/home:visible transition-all duration-300 py-3 shadow-2xl">
+                        <a href="index.html"
+                            class="block px-5 py-2 text-[10px] uppercase tracking-widest fw-70 hover:text-yellow-400 hover:bg-yellow-400/10 transition-colors">Home
+                            1</a>
+                        <a href="Home2.html"
+                            class="block px-5 py-2 text-[10px] uppercase tracking-widest fw-70 hover:text-yellow-400 hover:bg-yellow-400/10 transition-colors">Home
+                            2</a>
+                    </div>
+                </div>
+                <a href="About.html" class="nav-link">About</a>
+                <a href="Services.html" class="nav-link" style="color:#D4AF37;">Services</a>
+                <a href="Process.html" class="nav-link">Process</a>
+                
+                <a href="Gallery.html" class="nav-link">Gallery</a>
+                <a href="Blog.html" class="nav-link">Blog</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+            </div>
+
+            <!-- Desktop Icons -->
+            <div class="hidden lg:flex items-center gap-7 text-main dark:text-[#f8f5f2] relative">
+                <button title="Toggle Theme" class="theme-toggle hover:text-yellow-400 transition-all hover:scale-110 cursor-pointer">
+                    <i class="bi bi-moon-stars"></i>
+                </button>
+                
+                <button onclick="toggleDir()" title="Toggle RTL/LTR"
+                    class="hover:text-yellow-400 transition-all hover:scale-110 cursor-pointer">
+                    <i class="fa-solid fa-right-left"></i>
+                </button>
+
+                <a href="Login.html" class="px-5 py-2 bg-gold text-espresso text-[10px] uppercase tracking-widest font-bold rounded-sm hover:bg-charcoal hover:text-white dark:hover:bg-white transition-all duration-300">Login</a>
+            </div>
+
+            <!-- Hamburger -->
+            <button id="menu-btn" class="lg:hidden flex flex-col gap-[7px] focus:outline-none p-2 z-[200] relative">
+                <span class="h-line l1 w-8 h-[1px] bg-yellow-500 block"></span>
+                <span class="h-line l2 w-8 h-[1px] bg-yellow-500 block"></span>
+                <span class="h-line l3 w-5 h-[1px] bg-yellow-500 block ml-auto"></span>
+            </button>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu"
+            class="fixed inset-0 bg-[#2E2218]/98 backdrop-blur-2xl z-[150] opacity-0 invisible overflow-y-auto">
+            <div class="min-h-full flex flex-col items-center justify-center py-24 px-6 gap-0">
+
+                <!-- Nav Links -->
+                <nav class="flex flex-col items-center gap-2 w-full">
+                    <a href="index.html"
+                        class="mob-link font-serif text-3xl fw opacity-0 translate-y-6 transition-all duration-300 hover:text-yellow-400 py-2">Home 1</a>
+                    <a href="Home2.html"
+                        class="mob-link font-serif text-3xl fw opacity-0 translate-y-6 transition-all duration-300 hover:text-yellow-400 py-2">Home 2</a>
+                    <a href="About.html"
+                        class="mob-link font-serif text-2xl fw opacity-0 translate-y-6 transition-all duration-300 hover:text-yellow-400 py-2">About</a>
+                    <a href="Services.html"
+                        class="mob-link font-serif text-2xl fw opacity-0 translate-y-6 transition-all duration-300 hover:text-yellow-400 py-2 text-yellow-500">Services</a>
+                    <a href="Process.html"
+                        class="mob-link font-serif text-2xl fw opacity-0 translate-y-6 transition-all duration-300 hover:text-yellow-400 py-2">Process</a>
+                   
+                    <a href="Gallery.html"
+                        class="mob-link font-serif text-2xl fw opacity-0 translate-y-6 transition-all duration-300 hover:text-yellow-400 py-2">Gallery</a>
+                    <a href="Blog.html"
+                        class="mob-link font-serif text-2xl fw opacity-0 translate-y-6 transition-all duration-300 hover:text-yellow-400 py-2">Blog</a>
+                    <a href="contact.html"
+                        class="mob-link font-serif text-2xl fw opacity-0 translate-y-6 transition-all duration-300 hover:text-yellow-400 py-2">Contact</a>
+                </nav>
+
+                <!-- Auth row (Mobile) -->
+                <div class="mob-link opacity-0 translate-y-6 transition-all duration-300 flex gap-4 w-full px-6 mb-8 mt-8">
+                    <a href="Login.html" class="flex-1 py-4 border border-yellow-600/30 text-yellow-400 text-center uppercase tracking-widest text-[10px] fw-70 hover:bg-yellow-400 hover:text-espresso transition-all duration-500 rounded-sm">Login</a>
+                    <a href="Register.html" class="flex-1 py-4 bg-yellow-600 text-espresso text-center uppercase tracking-widest text-[10px] font-bold hover:bg-white transition-all duration-500 rounded-sm">Register</a>
+                </div>
+
+                <!-- Divider -->
+                <div class="mob-link opacity-0 translate-y-6 transition-all duration-300 w-32 h-[1px] bg-yellow-600/25 my-4"></div>
+
+                <!-- Utility Icons Row -->
+                <div class="mob-link opacity-0 translate-y-6 transition-all duration-300 flex items-center gap-6 text-yellow-400">
+                    <button class="theme-toggle flex flex-col items-center gap-1 hover:text-white transition-colors cursor-pointer" title="Toggle Theme">
+                        <i class="bi bi-moon-stars text-xl"></i>
+                        <span class="text-[8px] uppercase tracking-widest fw-40">Theme</span>
+                    </button>
+                    <div class="w-[1px] h-8 bg-yellow-600/25"></div>
+                    <button onclick="toggleDir()" class="flex flex-col items-center gap-1 hover:text-white transition-colors cursor-pointer" title="Toggle RTL/LTR">
+                        <i class="bi bi-arrows-expand-vertical text-xl"></i>
+                        <span class="text-[8px] uppercase tracking-widest fw-40">RTL</span>
+                    </button>
+                    <div class="w-[1px] h-8 bg-yellow-600/25"></div>
+                    <a href="contact.html" class="flex flex-col items-center gap-1 hover:text-white transition-colors">
+                        <i class="bi bi-instagram text-xl"></i>
+                        <span class="text-[8px] uppercase tracking-widest fw-40">Insta</span>
+                    </a>
+                    <a href="contact.html" class="flex flex-col items-center gap-1 hover:text-white transition-colors">
+                        <i class="bi bi-facebook text-xl"></i>
+                        <span class="text-[8px] uppercase tracking-widest fw-40">FB</span>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </nav>
+
+
+
+
+    <!-- ======================================
+     1. INTRO HEADER (GLASS SIDE-PANEL WITH BG IMAGE)
+====================================== -->
+    <section class="w-full md:min-h-[90vh] reveal relative flex items-center bg-[#2E2218]">
+        <!-- Background Image -->
+        <div class="hidden md:block absolute inset-0 w-full h-full z-0">
+            <img src="Assert/images/ServicePageBg.jpg"
+                alt="Atelier Leather Services" class="w-full h-full object-cover">
+            <!-- Dark Contrast Wash -->
+            <div class="absolute inset-0 bg-black/60 mix-blend-multiply"></div>
+            <div class="absolute inset-0 bg-gradient-to-r from-black/80 via-black/40 to-transparent"></div>
+        </div>
+
+        <!-- Overlapping Left Glass Panel stretching full height -->
+        <div
+            class="relative z-10 w-full md:w-[70%] lg:w-[45%] md:min-h-[90vh] bg-[#2E2218] md:bg-[#2E2218]/85 backdrop-blur-2xl border-b md:border-r border-yellow-600/20 flex flex-col justify-center px-6 md:px-16 lg:px-24 pt-24 md:pt-32 pb-20 shadow-2xl">
+
+            <span
+                class="text-yellow-400 uppercase tracking-[.4em] text-[10px] font-bold mb-6 block border-b border-yellow-400/30 w-fit pb-2">Dedicated
+                Offerings</span>
+
+            <h1
+                class="font-serif text-[12vw] sm:text-5xl md:text-6xl lg:text-7xl text-[#f8f5f2] fw leading-[1.05] mb-10 tracking-tight">
+                Atelier <br>Services.</h1>
+
+            <p class="text-[#f8f5f2]/70 leading-relaxed font-light text-sm md:text-base mb-12 max-w-sm">From precision
+                structural re-stitching to holistic heirloom preservation. We reject generic repair formulas in favor of
+                ethically sound, historically accurate material interventions.</p>
+
+            <div class="flex items-center gap-3 w-48 opacity-50">
+                <span class="flex-1 h-[1px] bg-yellow-400 blur-[0.5px]"></span>
+                <i class="bi bi-gem text-yellow-400 text-[10px]"></i>
+            </div>
+
+        </div>
+
+        <!-- Large Architectural Vertical Accent on the extreme right -->
+        <div class="absolute right-8 md:right-16 top-1/2 -translate-y-1/2 z-10 hidden md:block"
+            style="writing-mode: vertical-rl; transform: rotate(180deg);">
+            <span
+                class="font-serif text-[4rem] lg:text-[7rem] text-[#f8f5f2] opacity-[0.04] uppercase tracking-widest pointer-events-none select-none">Preservation</span>
+        </div>
+    </section>
+
+    <!-- ======================================
+     2. SERVICE OVERVIEW (INTERACTIVE ACCORDION)
+====================================== -->
+    <section class="w-full reveal bg-secondary-token">
+        <div class="container mx-auto px-0 lg:px-12 py-10">
+
+            <div class="svc-accordion w-full rounded-sm shadow-xl">
+
+                <!-- Panel 1 -->
+                <div class="svc-panel group">
+                    <img src="Assert/images/ServiceFeath1.jpg"
+                        class="svc-img" alt="Leather">
+                    <div class="svc-title-wrap">
+                        <h3 class="font-serif text-main uppercase tracking-widest lg:tracking-wider">Leather
+                            Reconstruction</h3>
+                    </div>
+                    <div class="svc-content-reveal flex">
+                        <h4 class="svc-title-hover tracking-tight">Leather <br>Reconstruction.</h4>
+                        <p class="svc-desc-hover">Reverse drying, cracking, and rot through advanced biological
+                            fatliquoring. We reconstruct panels using exact vintage donor hides.</p>
+                        <a href="contact.html"
+                            class="uppercase text-[10px] border-b border-yellow-600 text-yellow-500 font-bold tracking-widest w-fit pb-1 hover:text-white transition-colors">Book
+                            Evaluation</a>
+                    </div>
+                </div>
+
+                <!-- Panel 2 -->
+                <div class="svc-panel group">
+                    <img src="Assert/images/ServiceFeath2.jpg"
+                        class="svc-img" alt="Fur">
+                    <div class="svc-title-wrap">
+                        <h3 class="font-serif text-main uppercase tracking-widest lg:tracking-wider">Fur Archiving</h3>
+                    </div>
+                    <div class="svc-content-reveal flex">
+                        <h4 class="svc-title-hover tracking-tight">Ethical <br>Fur Archiving.</h4>
+                        <p class="svc-desc-hover">Pelt rehydration and structural lining replacement. We stabilize
+                            fragile historic furs to prevent shedding while reviving the original sheen.</p>
+                        <a href="contact.html"
+                            class="uppercase text-[10px] border-b border-yellow-600 text-yellow-500 font-bold tracking-widest w-fit pb-1 hover:text-white transition-colors">Book
+                            Evaluation</a>
+                    </div>
+                </div>
+
+                <!-- Panel 3 -->
+                <div class="svc-panel group">
+                    <img src="Assert/images/ServiceFeath3.jpg"
+                        class="svc-img" alt="Hardware">
+                    <div class="svc-title-wrap">
+                        <h3 class="font-serif text-main uppercase tracking-widest lg:tracking-wider">Hardware
+                            Integration</h3>
+                    </div>
+                    <div class="svc-content-reveal flex">
+                        <h4 class="svc-title-hover tracking-tight">Vintage <br>Hardware.</h4>
+                        <p class="svc-desc-hover">We replace blown zippers and oxidized rivets using era-specific
+                            new-old-stock brass and steel components, retaining weight and pull authenticity.</p>
+                        <a href="contact.html"
+                            class="uppercase text-[10px] border-b border-yellow-600 text-yellow-500 font-bold tracking-widest w-fit pb-1 hover:text-white transition-colors">Book
+                            Evaluation</a>
+                    </div>
+                </div>
+
+                <!-- Panel 4 -->
+                <div class="svc-panel group">
+                    <img src="Assert/images/ServiceFeath4.jpg"
+                        class="svc-img" alt="Storage">
+                    <div class="svc-title-wrap">
+                        <h3 class="font-serif text-main uppercase tracking-widest lg:tracking-wider">Vault Storage</h3>
+                    </div>
+                    <div class="svc-content-reveal flex">
+                        <h4 class="svc-title-hover tracking-tight">Climate <br>Vault Cover.</h4>
+                        <p class="svc-desc-hover">Store your pieces in our absolute humidity-regulated facility during
+                            off-seasons to halt bacterial decomposition.</p>
+                        <a href="contact.html"
+                            class="uppercase text-[10px] border-b border-yellow-600 text-yellow-500 font-bold tracking-widest w-fit pb-1 hover:text-white transition-colors">Book
+                            Evaluation</a>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ======================================
+     3. SERVICE HIGHLIGHTS (Z-PATTERN)
+====================================== -->
+    <section class="py-24 lg:py-36 bg-cream-token border-t border-token reveal hidden lg:block overflow-hidden">
+        <div class="container mx-auto px-6 lg:px-12 relative flex flex-col gap-32">
+
+            <div
+                class="text-center absolute top-0 left-0 w-full z-0 font-serif text-[18rem] text-main opacity-5 select-none leading-none -translate-y-20">
+                01</div>
+
+            <!-- Row 1 -->
+            <div class="flex justify-between items-center relative z-10 w-full max-w-5xl mx-auto">
+                <div class="w-1/2 pr-20">
+                    <h3 class="font-serif text-5xl mb-6 text-main">Complete Exfoliation & Dye Strip.</h3>
+                    <p class="text-muted leading-relaxed">Prior to adding color, old waxes and polymers must be entirely
+                        excised. We utilize safe, pH-balanced solvents to strip away cheap fillers without burning the
+                        native dermal layers.</p>
+                </div>
+                <div class="w-[30%] h-[350px] border-8 border-token rounded-sm overflow-hidden transform rotate-2">
+                    <img src="Assert/images/ServiceGall1.avif"
+                        class="w-full h-full object-cover filter contrast-125" alt="Detail 1">
+                </div>
+            </div>
+
+            <div
+                class="text-center absolute bottom-20 left-0 w-full z-0 font-serif text-[18rem] text-main opacity-5 select-none leading-none">
+                02</div>
+
+            <!-- Row 2 -->
+            <div class="flex flex-row-reverse justify-between items-center relative z-10 w-full max-w-5xl mx-auto">
+                <div class="w-1/2 pl-20 text-right">
+                    <h3 class="font-serif text-5xl mb-6 text-main">Period-Accurate Restitching.</h3>
+                    <p class="text-muted leading-relaxed text-right">A machine-stitch replacing hand-sewn mid-century
+                        tension is immediately noticeable and structurally detrimental. Our tailors exclusively trace
+                        original puncture pathways using heavy waxed linen threads.</p>
+                </div>
+                <div
+                    class="w-[30%] h-[350px] border-8 border-yellow-600/30 rounded-sm overflow-hidden transform -rotate-3">
+                    <img src="Assert/images/ServiceGall2.avif"
+                        class="w-full h-full object-cover filter sepia text-yellow-600 mix-blend-multiply"
+                        alt="Detail 2">
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ======================================
+     4. PROCESS PREVIEW (TIMELINE)
+====================================== -->
+    <section class="py-24 bg-espresso-token w-full reveal text-center border-y border-yellow-600/20">
+        <div class="container mx-auto px-6 overflow-hidden">
+
+            <h2 class="font-serif text-4xl md:text-5xl fw mb-20 relative z-10">The Methodology.</h2>
+
+            <div class="relative w-full max-w-5xl mx-auto py-10 hidden md:block">
+
+
+                <div class="grid grid-cols-4 relative z-10 gap-4">
+                    <!-- Step -->
+                    <div class="step-col text-center group cursor-pointer">
+                        <div
+                            class="relative z-10 w-20 h-20 mx-auto bg-yellow-600 border-2 border-yellow-600 flex items-center justify-center transform rotate-45 group-hover:bg-[#2E2218] transition-all duration-500 shadow-[0_0_20px_rgba(212,175,55,0.2)]">
+                            <span
+                                class="transform -rotate-45 font-serif text-3xl text-[#2E2218] group-hover:text-yellow-400 transition-colors block leading-none font-bold">I</span>
+                        </div>
+                        <h4
+                            class="mt-12 font-bold text-[11px] uppercase tracking-widest text-[#f8f5f2] group-hover:text-yellow-600 transition-colors">
+                            Assessment</h4>
+                        <p class="mt-3 text-[10px] opacity-60 text-[#f8f5f2] px-4 hidden lg:block leading-relaxed">
+                            Micro-imaging analysis and archival material matching.</p>
+                    </div>
+                    <!-- Step -->
+                    <div class="step-col text-center group cursor-pointer">
+                        <div
+                            class="relative z-10 w-20 h-20 mx-auto bg-yellow-600 border-2 border-yellow-600 flex items-center justify-center transform rotate-45 group-hover:bg-[#2E2218] transition-all duration-500 shadow-[0_0_20px_rgba(212,175,55,0.2)]">
+                            <span
+                                class="transform -rotate-45 font-serif text-3xl text-[#2E2218] group-hover:text-yellow-400 transition-colors block leading-none font-bold">II</span>
+                        </div>
+                        <h4
+                            class="mt-12 font-bold text-[11px] uppercase tracking-widest text-[#f8f5f2] group-hover:text-yellow-600 transition-colors">
+                            Stabilization</h4>
+                        <p class="mt-3 text-[10px] opacity-60 text-[#f8f5f2] px-4 hidden lg:block leading-relaxed">PH
+                            balance correction and deep molecular hydration.</p>
+                    </div>
+                    <!-- Step -->
+                    <div class="step-col text-center group cursor-pointer">
+                        <div
+                            class="relative z-10 w-20 h-20 mx-auto bg-yellow-600 border-2 border-yellow-600 flex items-center justify-center transform rotate-45 group-hover:bg-[#2E2218] transition-all duration-500 shadow-[0_0_20px_rgba(212,175,55,0.2)]">
+                            <span
+                                class="transform -rotate-45 font-serif text-3xl text-[#2E2218] group-hover:text-yellow-400 transition-colors block leading-none font-bold">III</span>
+                        </div>
+                        <h4
+                            class="mt-12 font-bold text-[11px] uppercase tracking-widest text-[#f8f5f2] group-hover:text-yellow-600 transition-colors">
+                            Restoration</h4>
+                        <p class="mt-3 text-[10px] opacity-60 text-[#f8f5f2] px-4 hidden lg:block leading-relaxed">
+                            Period-correct structural sewing and grain refinishing.</p>
+                    </div>
+                    <!-- Step -->
+                    <div class="step-col text-center group cursor-pointer">
+                        <div
+                            class="relative z-10 w-20 h-20 mx-auto bg-yellow-600 border-2 border-yellow-600 flex items-center justify-center transform rotate-45 group-hover:bg-[#2E2218] transition-all duration-500 shadow-[0_0_20px_rgba(212,175,55,0.2)]">
+                            <span
+                                class="transform -rotate-45 font-serif text-3xl text-[#2E2218] group-hover:text-yellow-400 transition-colors block leading-none font-bold">IV</span>
+                        </div>
+                        <h4
+                            class="mt-12 font-bold text-[11px] uppercase tracking-widest text-[#f8f5f2] group-hover:text-yellow-600 transition-colors">
+                            Curation</h4>
+                        <p class="mt-3 text-[10px] opacity-60 text-[#f8f5f2] px-4 hidden lg:block leading-relaxed">Final
+                            protective glazing and archival documentation.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mobile List -->
+            <div class="md:hidden flex flex-col gap-10 text-left w-full pl-4 border-l-2 border-yellow-600/30">
+                <div>
+                    <span class="text-yellow-600 font-serif text-2xl mb-1 block">I.</span>
+                    <h4 class="font-bold text-[11px] uppercase tracking-widest text-[#f8f5f2]">Assessment</h4>
+                </div>
+                <div>
+                    <span class="text-yellow-600 font-serif text-2xl mb-1 block">II.</span>
+                    <h4 class="font-bold text-[11px] uppercase tracking-widest text-[#f8f5f2]">Stabilization</h4>
+                </div>
+                <div>
+                    <span class="text-yellow-600 font-serif text-2xl mb-1 block">III.</span>
+                    <h4 class="font-bold text-[11px] uppercase tracking-widest text-[#f8f5f2]">Restoration</h4>
+                </div>
+                <div>
+                    <span class="text-yellow-600 font-serif text-2xl mb-1 block">IV.</span>
+                    <h4 class="font-bold text-[11px] uppercase tracking-widest text-[#f8f5f2]">Final Finish</h4>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ======================================
+     5. BEFORE & AFTER SHOWCASE
+====================================== -->
+    <section class="py-24 lg:py-36 bg-cream-token w-full reveal">
+        <div class="container mx-auto px-6 lg:px-12">
+            <div class="text-center mb-16">
+                <span class="text-yellow-600 uppercase tracking-[.4em] text-[10px] font-bold mb-4 block">Visual
+                    Evidence</span>
+                <h2 class="font-serif text-4xl md:text-5xl text-main leading-tight mb-4">Complete Resurgence.</h2>
+                <p class="text-muted max-w-lg mx-auto mt-6 text-sm lg:text-base leading-relaxed">Below is a testament to
+                    our intervention capabilities. A garment rescued from terminal dry-rot, painstakingly disassembled,
+                    structurally reinforced, and fundamentally reborn.</p>
+            </div>
+
+            <div class="flex flex-col md:flex-row gap-8 lg:gap-12 w-full max-w-6xl mx-auto mb-16">
+                <!-- Before -->
+                <div class="w-full md:w-1/2 group relative border border-token p-4 bg-secondary-token hidden md:block">
+                    <span
+                        class="absolute top-8 left-8 bg-[#2E2218] text-[#f8f5f2] text-[9px] uppercase tracking-widest px-3 py-1 z-10">Archive
+                        Condition</span>
+                    <div class="overflow-hidden relative h-[400px] lg:h-[500px] w-full">
+                        <img src="Assert/images/ServiceGall3.jpg"
+                            alt="Before"
+                            class="w-full h-full object-cover filter sepia grayscale contrast-50 transition-transform duration-1000 group-hover:scale-105">
+                    </div>
+                </div>
+
+                <!-- After -->
+                <div class="w-full md:w-1/2 group relative border border-token p-4 bg-secondary-token">
+                    <span
+                        class="absolute top-8 left-8 bg-[#D4AF37] text-[#2E2218] text-[9px] font-bold uppercase tracking-widest px-3 py-1 z-10">Restored
+                        Artifact</span>
+                    <div class="overflow-hidden relative h-[400px] lg:h-[500px] w-full shadow-2xl">
+                        <img src="Assert/images/ServiceGall4.jpg"
+                            alt="After"
+                            class="w-full h-full object-cover filter contrast-125 transition-transform duration-1000 group-hover:scale-105">
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mb-16">
+                <p class="text-main text-lg md:text-xl max-w-3xl mx-auto italic font-serif leading-relaxed">"The
+                    difference lies not in merely masking damage, but structurally replacing decomposed tissues while
+                    preserving the inherited patina."</p>
+            </div>
+
+            <!-- Descriptive Content Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-10 max-w-5xl mx-auto border-t border-token pt-16">
+                <div class="text-center md:text-left">
+                    <h4 class="font-serif text-2xl tracking-wide mb-4 text-main">01. Hide Rehydration</h4>
+                    <p class="text-muted text-sm leading-relaxed">Using advanced fatliquoring techniques, we reverse
+                        brittle cracking by reintroducing natural animal matrix oils over a 14-day absorption protocol,
+                        restoring suppleness without altering grain.</p>
+                </div>
+                <div class="text-center md:text-left">
+                    <h4 class="font-serif text-2xl tracking-wide mb-4 text-main">02. Pigment Match</h4>
+                    <p class="text-muted text-sm leading-relaxed">Exact color reconstruction achieved using
+                        period-accurate aniline dyes. We explicitly reject thick acrylic paints which suffocate hide
+                        pores and inevitably fracture over time.</p>
+                </div>
+                <div class="text-center md:text-left">
+                    <h4 class="font-serif text-2xl tracking-wide mb-4 text-main">03. Panel Splice</h4>
+                    <p class="text-muted text-sm leading-relaxed">Irreversibly rotted sections are excised. We source
+                        matching vintage donor hides to splice in functional structural panels, meticulously tracing
+                        absolute original thread pathways.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ======================================
+     6. CROSS LINKS
+====================================== -->
+    <section class="w-full reveal bg-cream-token pt-20">
+        <div class="container mx-auto px-6 lg:px-12">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-10">
+
+                <a href="Gallery.html" class="cross-link group">
+                    <img src="Assert/images/ServiceGall5.jpg"
+                        alt="Gallery bg" class="grayscale">
+                    <div class="cross-text text-center">
+                        <i class="bi bi-camera text-3xl mb-4 block"></i>
+                        <h3 class="font-serif text-4xl mb-2">View The Archives</h3>
+                        <span
+                            class="text-[10px] uppercase tracking-widest font-bold border-b pb-1 inline-block opacity-70">See
+                            the proof</span>
+                    </div>
+                </a>
+
+                <a href="contact.html" class="cross-link group">
+                    <img src="Assert/images/ServiceFeath1.jpg"
+                        alt="Contact bg" class="grayscale">
+                    <div class="cross-text text-center">
+                        <i class="bi bi-chat-quote text-3xl mb-4 block"></i>
+                        <h3 class="font-serif text-4xl mb-2">Start a Commission</h3>
+                        <span
+                            class="text-[10px] uppercase tracking-widest font-bold border-b pb-1 inline-block opacity-70">Contact
+                            Restorers</span>
+                    </div>
+                </a>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ======================================
+     7. FINAL FAQS
+====================================== -->
+    <section class="py-24 bg-cream-token w-full reveal">
+        <div class="container mx-auto px-6 max-w-4xl">
+            <div class="text-center mb-16">
+                <h2 class="font-serif text-4xl md:text-5xl text-main leading-tight mb-4">Client Inquiries</h2>
+                <p class="text-muted">Understanding our rigorous standards before committing.</p>
+            </div>
+
+            <div class="border-t border-token w-full">
+
+                <div class="faq-item" onclick="this.classList.toggle('active')">
+                    <button class="faq-btn">What is your turnaround time? <i
+                            class="bi bi-plus text-2xl text-muted"></i></button>
+                    <div class="faq-ans bg-secondary-token px-8 group">
+                        <p class="py-6 text-main text-sm md:text-base leading-relaxed">Due to the intense labor
+                            involved and material curing requirements, standard restorations require 8-12 weeks.
+                            Complete structural reconstructions may take up to 6 months.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item" onclick="this.classList.toggle('active')">
+                    <button class="faq-btn">Do you repair faux leather? <i
+                            class="bi bi-plus text-2xl text-muted"></i></button>
+                    <div class="faq-ans bg-secondary-token px-8 group">
+                        <p class="py-6 text-main text-sm md:text-base leading-relaxed">No. Faux leather is essentially
+                            polyurethane or plastic, which degrades and flakes irreversibly. Our biological restoration
+                            formulas only bond with authentic animal hides.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item" onclick="this.classList.toggle('active')">
+                    <button class="faq-btn">Is shipping covered in the quote? <i
+                            class="bi bi-plus text-2xl text-muted"></i></button>
+                    <div class="faq-ans bg-secondary-token px-8 group">
+                        <p class="py-6 text-main text-sm md:text-base leading-relaxed">Insured bespoke courier service
+                            is added to the final atelier invoice. We provide secure canvas transit sacks prior to your
+                            shipping date.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item" onclick="this.classList.toggle('active')">
+                    <button class="faq-btn">Can you alter garment sizing? <i
+                            class="bi bi-plus text-2xl text-muted"></i></button>
+                    <div class="faq-ans bg-secondary-token px-8 group">
+                        <p class="py-6 text-muted text-sm md:text-base leading-relaxed">Yes, we employ master tailors
+                            capable of complex leather and fur restyling, sizing down, and structural panel replacement.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ======================================
+     FOOTER
+====================================== -->
+    <footer style="background-color:#2E2218; color:#f8f5f2;" class="pt-24 pb-8">
+        <div class="container mx-auto px-6 lg:px-12">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-y-12 gap-x-8 mb-20 text-center md:text-left">
+                <div class="space-y-5 flex flex-col items-center md:items-start">
+                    <h4 class="font-serif text-xl border-b border-yellow-600/20 pb-2 fw w-full">Brand Info</h4>
+                    <a href="index.html"
+                        class="font-serif text-2xl tracking-tighter flex items-center justify-center md:justify-start gap-3 fw">
+                        <span
+                            class="w-8 h-8 rounded-full border border-yellow-400 flex items-center justify-center text-xs text-yellow-400">R</span>
+                        REGENERATE
+                    </a>
+                    <p class="fw-40 text-sm leading-relaxed">Excellence in restoration since 1984. Preserving your most
+                        cherished vintage leather and fur heirlooms with ethical precision.</p>
+                    <p class="text-yellow-400 italic text-sm font-serif">"Preserving Heritage Hides."</p>
+                </div>
+
+                <div>
+                    <h4 class="font-serif text-xl mb-7 border-b border-yellow-600/20 pb-2 fw">Services</h4>
+                    <ul class="space-y-3 text-sm fw-70 flex flex-col items-center md:items-start">
+                        <li><a href="Services.html"
+                                class="hover:text-yellow-400 transition-colors flex items-center gap-2"><span>·</span>
+                                Leather</a></li>
+                        <li><a href="Services.html"
+                                class="hover:text-yellow-400 transition-colors flex items-center gap-2"><span>·</span>
+                                Fur Repair</a></li>
+                        <li><a href="Services.html"
+                                class="hover:text-yellow-400 transition-colors flex items-center gap-2"><span>·</span>
+                                Cleaning</a></li>
+                        <li><a href="Services.html"
+                                class="hover:text-yellow-400 transition-colors flex items-center gap-2"><span>·</span>
+                                Refinishing</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-serif text-xl mb-7 border-b border-yellow-600/20 pb-2 fw">Quick Links</h4>
+                    <ul class="space-y-3 text-sm fw-70 flex flex-col items-center md:items-start">
+                        <li><a href="index.html"
+                                class="hover:text-yellow-400 transition-colors flex items-center gap-2"><span>·</span>
+                                Home</a></li>
+                        <li><a href="About.html"
+                                class="hover:text-yellow-400 transition-colors flex items-center gap-2"><span>·</span>
+                                About</a></li>
+                        <li><a href="Services.html"
+                                class="hover:text-yellow-400 transition-colors flex items-center gap-2"><span>·</span>
+                                Services</a></li>
+                        <li><a href="Gallery.html"
+                                class="hover:text-yellow-400 transition-colors flex items-center gap-2"><span>·</span>
+                                Gallery</a></li>
+                        <li><a href="Blog.html"
+                                class="hover:text-yellow-400 transition-colors flex items-center gap-2"><span>·</span>
+                                Blog</a></li>
+                        <li><a href="contact.html"
+                                class="hover:text-yellow-400 transition-colors flex items-center gap-2"><span>·</span>
+                                Contact</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-serif text-xl mb-7 border-b border-yellow-600/20 pb-2 fw">Contact</h4>
+                    <ul class="space-y-4 text-sm fw-70 flex flex-col items-center md:items-start">
+                        <li class="flex flex-col md:flex-row items-center md:items-start gap-1 md:gap-3">
+                            <span class="text-yellow-400"><i class="bi bi-geo-alt"></i></span>
+                            <span>123 Heritage Lane,<br>London, UK W1S 2LY</span>
+                        </li>
+                        <li class="flex flex-col md:flex-row items-center md:items-start gap-1 md:gap-3">
+                            <span class="text-yellow-400"><i class="bi bi-telephone"></i></span>
+                            <span>+44 20 7946 0123</span>
+                        </li>
+                        <li class="flex flex-col md:flex-row items-center md:items-start gap-1 md:gap-3">
+                            <span class="text-yellow-400"><i class="bi bi-envelope"></i></span>
+                            <span>atelier@regenerate.com</span>
+                        </li>
+                    </ul>
+                    <div class="flex justify-center md:justify-start gap-6 mt-8">
+                        <a href="contact.html"
+                            class="w-10 h-10 rounded-full border border-yellow-400/30 flex items-center justify-center text-yellow-400 hover:bg-yellow-400 hover:text-[#2E2218] transition-all duration-300"><i
+                                class="bi bi-instagram"></i></a>
+                        <a href="contact.html"
+                            class="w-10 h-10 rounded-full border border-yellow-400/30 flex items-center justify-center text-yellow-400 hover:bg-yellow-400 hover:text-[#2E2218] transition-all duration-300"><i
+                                class="bi bi-twitter-x"></i></a>
+                        <a href="contact.html"
+                            class="w-10 h-10 rounded-full border border-yellow-400/30 flex items-center justify-center text-yellow-400 hover:bg-yellow-400 hover:text-[#2E2218] transition-all duration-300"><i
+                                class="bi bi-facebook"></i></a>
+                    </div>
+                </div>
+
+            </div>
+
+            <div
+                class="pt-10 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4 text-[10px] uppercase tracking-widest fw-20 text-center">
+                <p>&copy; 2026 Ethical Leather Restoration. All Rights Reserved.</p>
+                <div class="flex gap-8">
+                    <a href="contact.html" class="hover:text-yellow-400 transition-colors">Privacy Policy</a>
+                    <span>|</span>
+                    <a href="contact.html" class="hover:text-yellow-400 transition-colors">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JAVASCRIPT -->
+    <script>
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => { navbar.classList.toggle('shadow-2xl', window.scrollY > 50); });
+
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobLinks = document.querySelectorAll('.mob-link');
+        let menuOpen = false;
+
+        function openMenu() {
+            menuOpen = true;
+            navbar.classList.add('menu-open');
+            mobileMenu.classList.remove('opacity-0', 'invisible');
+            mobileMenu.classList.add('opacity-100', 'visible');
+            document.body.style.overflow = 'hidden';
+            mobLinks.forEach((link, i) => {
+                setTimeout(() => {
+                    link.style.opacity = '1';
+                    link.style.transform = 'translateY(0)';
+                }, 120 + i * 80);
+            });
+        }
+
+        function closeMenuFn() {
+            menuOpen = false;
+            navbar.classList.remove('menu-open');
+            mobileMenu.classList.add('opacity-0', 'invisible');
+            mobileMenu.classList.remove('opacity-100', 'visible');
+            document.body.style.overflow = '';
+            mobLinks.forEach(link => {
+                link.style.opacity = '0';
+                link.style.transform = 'translateY(1.5rem)';
+            });
+        }
+
+        menuBtn.addEventListener('click', () => { menuOpen ? closeMenuFn() : openMenu(); });
+        mobLinks.forEach(link => link.addEventListener('click', closeMenuFn));
+
+        window.addEventListener('resize', () => {
+            if (window.innerWidth >= 1024 && menuOpen) {
+                closeMenuFn();
+            }
+        });
+
+        /* ---- Accordion Toggle (Mobile) ---- */
+        document.querySelectorAll('.svc-panel').forEach(panel => {
+            panel.addEventListener('click', () => {
+                if (window.innerWidth < 1024) {
+                    const isActive = panel.classList.contains('active');
+                    // Close others
+                    document.querySelectorAll('.svc-panel').forEach(p => p.classList.remove('active'));
+                    // Toggle current
+                    if (!isActive) panel.classList.add('active');
+                }
+            });
+        });
+
+        const ro = new IntersectionObserver((entries) => {
+            entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); ro.unobserve(e.target); } });
+        }, { threshold: 0.08 });
+        document.querySelectorAll('.reveal').forEach(el => ro.observe(el));
+
+        function toggleDir() {
+            const html = document.documentElement;
+            const currentDir = html.getAttribute('dir') || 'ltr';
+            const newDir = currentDir === 'rtl' ? 'ltr' : 'rtl';
+            html.setAttribute('dir', newDir);
+            html.setAttribute('lang', newDir === 'rtl' ? 'ar' : 'en');
+            localStorage.setItem('dir', newDir);
+        }
+
+        /* Init direction from storage */
+        const savedDir = localStorage.getItem('dir');
+        if (savedDir) {
+            document.documentElement.setAttribute('dir', savedDir);
+            document.documentElement.setAttribute('lang', savedDir === 'rtl' ? 'ar' : 'en');
+        }
+
+
+
+        const themeBtns = document.querySelectorAll('.theme-toggle');
+        const root = document.documentElement;
+
+        function applyTheme(dark) {
+            root.classList.toggle('dark', dark);
+            themeBtns.forEach(btn => {
+                btn.innerHTML = dark ? '<i class="bi bi-sun"></i>' : '<i class="bi bi-moon-stars"></i>';
+            });
+        }
+
+        themeBtns.forEach(btn => btn.addEventListener('click', () => {
+            const isDark = !root.classList.contains('dark');
+            applyTheme(isDark);
+            localStorage.setItem('theme', isDark ? 'dark' : 'light');
+        }));
+
+        applyTheme(localStorage.getItem('theme') === 'dark');
+
+    </script>
+</body>
+
+</html>
