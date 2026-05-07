@@ -469,14 +469,14 @@
 
             <!-- Logo -->
             <a href="index.html"
-                class="font-serif text-2xl lg:text-3xl text-main dark:text-[#f8f5f2] tracking-tighter flex items-center gap-2 group">
+                class="font-serif text-xl lg:text-2xl xl:text-3xl text-main dark:text-[#f8f5f2] tracking-tighter flex items-center gap-2 group">
                 <span
                     class="w-8 h-8 rounded-full border border-yellow-500 flex items-center justify-center text-xs text-yellow-500 group-hover:bg-yellow-400 group-hover:text-[#2E2218] transition-all">R</span>
                 REGENERATE
             </a>
 
             <!-- Desktop Nav -->
-            <div class="hidden lg:flex items-center gap-10">
+            <div class="hidden lg:flex items-center gap-4 xl:gap-10">
                 <!-- Home dropdown -->
                 <div class="relative group/home">
                     <button class="nav-link flex items-center gap-1">Home <i
@@ -501,7 +501,7 @@
             </div>
 
             <!-- Desktop Icons -->
-            <div class="hidden lg:flex items-center gap-7 text-main dark:text-[#f8f5f2] relative">
+            <div class="hidden lg:flex items-center gap-4 xl:gap-7 text-main dark:text-[#f8f5f2] relative">
                 <button title="Toggle Theme" class="theme-toggle hover:text-yellow-400 transition-all hover:scale-110 cursor-pointer">
                     <i class="bi bi-moon-stars"></i>
                 </button>
@@ -589,7 +589,7 @@
     <!-- ======================================
      1. CONTACT INTRO
 ====================================== -->
-    <section class="w-full pt-40 pb-28 lg:pt-56 lg:pb-44 bg-espresso-token relative overflow-hidden">
+    <section class="w-full pt-40 pb-32 lg:pt-56 lg:pb-56 bg-espresso-token relative overflow-hidden">
 
         <div class="absolute inset-0 z-0">
             <img src="Assert/images/contactherobg.png" class="w-full h-full object-cover opacity-30 mix-blend-overlay">
@@ -615,21 +615,20 @@
     <!-- ======================================
      2 & 3. CONTACT INFO AND FORM (OVERLAP)
 ====================================== -->
-    <section id="form" class="relative w-full pb-24 md:-mt-24 z-20 reveal">
+    <section id="form" class="relative w-full pb-24 md:-mt-32 z-20 reveal">
         <div class="container mx-auto px-6 lg:px-12">
 
             <div class="flex flex-col lg:flex-row shadow-2xl overflow-hidden rounded-sm border border-token">
 
                 <!-- CONTACT INFO LEFT -->
-                <div
-                    class="w-full lg:w-2/5 p-10 md:p-16 bg-cream-token relative overflow-hidden flex flex-col justify-between group/info">
+                <div class="w-full lg:w-2/5 p-10 md:p-16 lg:p-20 bg-cream-token relative overflow-hidden flex flex-col justify-between group/info">
                     <div
                         class="absolute -bottom-16 -right-10 text-[18rem] text-main opacity-[0.02] font-serif leading-none select-none transition-transform duration-[20s] group-hover/info:rotate-12 group-hover/info:scale-110">
                         R</div>
 
                     <div class="relative z-10">
                         <h3
-                            class="font-serif text-3xl md:text-5xl text-main mb-12 border-b border-token pb-4 inline-block">
+                            class="font-serif text-3xl md:text-4xl lg:text-5xl text-main mb-6 border-b border-token pb-4 inline-block">
                             Direct Lines</h3>
                         <div class="space-y-10">
                             <div class="group">
@@ -672,12 +671,12 @@
                 </div>
 
                 <!-- CONTACT FORM RIGHT -->
-                <div class="w-full lg:w-3/5 p-10 md:p-16 lg:p-20 bg-secondary-token relative">
-                    <h3 class="font-serif text-3xl md:text-4xl text-main mb-3">Send an Inquiry</h3>
+                <div class="w-full lg:w-3/5 p-10 md:p-16 lg:p-20 bg-secondary-token relative flex flex-col">
+                    <h3 class="font-serif text-3xl md:text-4xl lg:text-5xl text-main mb-6 pb-4 border-b border-transparent inline-block">Send an Inquiry</h3>
                     <p class="text-muted text-sm mb-12 max-w-sm">We strictly prioritize all restoration and vault
                         storage requests within 24 business hours.</p>
 
-                    <form class="flex flex-col gap-10" onsubmit="return false">
+                    <form class="flex flex-col gap-10 flex-grow justify-between" onsubmit="return false">
                         <div class="flex flex-col md:flex-row gap-10">
                             <input type="text" class="input-line" placeholder="First Name *">
                             <input type="text" class="input-line" placeholder="Last Name *">

@@ -365,14 +365,14 @@
 
             <!-- Logo -->
             <a href="index.html"
-                class="font-serif text-2xl lg:text-3xl text-main dark:text-[#f8f5f2] tracking-tighter flex items-center gap-2 group">
+                class="font-serif text-xl lg:text-2xl xl:text-3xl text-main dark:text-[#f8f5f2] tracking-tighter flex items-center gap-2 group">
                 <span
                     class="w-8 h-8 rounded-full border border-yellow-500 flex items-center justify-center text-xs text-yellow-500 group-hover:bg-yellow-400 group-hover:text-[#2E2218] transition-all">R</span>
                 REGENERATE
             </a>
 
             <!-- Desktop Nav -->
-            <div class="hidden lg:flex items-center gap-10">
+            <div class="hidden lg:flex items-center gap-4 xl:gap-10">
                 <!-- Home dropdown -->
                 <div class="relative group/home">
                     <button class="nav-link flex items-center gap-1" style="color:#D4AF37;">Home <i
@@ -397,7 +397,7 @@
             </div>
 
             <!-- Desktop Icons -->
-            <div class="hidden lg:flex items-center gap-7 text-main dark:text-[#f8f5f2] relative">
+            <div class="hidden lg:flex items-center gap-4 xl:gap-7 text-main dark:text-[#f8f5f2] relative">
                 <button title="Toggle Theme" class="theme-toggle hover:text-yellow-400 transition-all hover:scale-110 cursor-pointer">
                     <i class="bi bi-moon-stars"></i>
                 </button>
@@ -666,9 +666,10 @@
             <div class="space-y-16 relative before:absolute before:inset-y-0 before:left-[35px] md:before:left-1/2 before:-ml-px before:w-px md:before:-translate-x-px before:bg-yellow-600/30">
                 
                 <!-- Step 1 -->
-                <div class="relative flex flex-col md:flex-row items-start md:items-center justify-between md:odd:flex-row-reverse group">
-                    <div class="flex items-center justify-center w-[70px] h-[70px] rounded-full border border-yellow-600 bg-cream-token text-yellow-600 group-hover:bg-yellow-600 group-hover:text-white transition-all duration-500 shadow-xl shrink-0 z-10 font-serif text-3xl md:static md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 ml-0 md:ml-0">01</div>
-                    <div class="w-full mt-8 md:mt-0 md:w-[calc(50%-4rem)] p-8 md:p-10 rounded-sm bg-surface-raise transition-all duration-500 group-hover:-translate-y-2 shadow-xl border border-token">
+                <div class="relative group flex flex-col md:flex-row">
+                    <!-- Absolute Circle on the Line -->
+                    <div class="absolute left-[35px] md:left-1/2 transform -translate-x-1/2 flex items-center justify-center w-[60px] h-[60px] rounded-full border-2 border-yellow-600 bg-cream-token text-yellow-600 group-hover:bg-yellow-600 group-hover:text-white transition-all duration-500 shadow-xl z-10 font-serif text-2xl top-6 md:top-1/2 md:-translate-y-1/2">01</div>
+                    <div class="w-full pl-[90px] md:pl-0 md:w-[calc(50%-4rem)] p-8 md:p-10 rounded-sm bg-surface-raise transition-all duration-500 group-hover:-translate-y-2 shadow-xl border border-token md:ml-auto">
                         <span class="text-yellow-600 font-bold tracking-widest text-[9px] uppercase mb-2 block">Step 01</span>
                         <h4 class="font-serif text-3xl text-main mb-4">Private Consultation</h4>
                         <p class="text-muted text-sm md:text-base leading-relaxed">Virtual or in-person discussion regarding the history of the piece and your ultimate goals for its preservation.</p>
@@ -676,9 +677,10 @@
                 </div>
 
                 <!-- Step 2 -->
-                <div class="relative flex flex-col md:flex-row items-start md:items-center justify-between md:odd:flex-row-reverse group">
-                    <div class="flex items-center justify-center w-[70px] h-[70px] rounded-full border border-yellow-600 bg-cream-token text-yellow-600 group-hover:bg-yellow-600 group-hover:text-white transition-all duration-500 shadow-xl shrink-0 z-10 font-serif text-3xl md:static md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 ml-0 md:ml-0">02</div>
-                    <div class="w-full mt-8 md:mt-0 md:w-[calc(50%-4rem)] p-8 md:p-10 rounded-sm bg-surface-raise transition-all duration-500 group-hover:-translate-y-2 shadow-xl border border-token">
+                <div class="relative group flex flex-col md:flex-row">
+                    <!-- Absolute Circle on the Line -->
+                    <div class="absolute left-[35px] md:left-1/2 transform -translate-x-1/2 flex items-center justify-center w-[60px] h-[60px] rounded-full border-2 border-yellow-600 bg-cream-token text-yellow-600 group-hover:bg-yellow-600 group-hover:text-white transition-all duration-500 shadow-xl z-10 font-serif text-2xl top-6 md:top-1/2 md:-translate-y-1/2">02</div>
+                    <div class="w-full pl-[90px] md:pl-0 md:w-[calc(50%-4rem)] p-8 md:p-10 rounded-sm bg-surface-raise transition-all duration-500 group-hover:-translate-y-2 shadow-xl border border-token md:mr-auto">
                         <span class="text-yellow-600 font-bold tracking-widest text-[9px] uppercase mb-2 block">Step 02</span>
                         <h4 class="font-serif text-3xl text-main mb-4">Scientific Assessment</h4>
                         <p class="text-muted text-sm md:text-base leading-relaxed">Detailed analysis of hide integrity, identifying dry rot, UV damage, or mold spores invisible to the naked eye.</p>
@@ -686,9 +688,10 @@
                 </div>
 
                 <!-- Step 3 -->
-                <div class="relative flex flex-col md:flex-row items-start md:items-center justify-between md:odd:flex-row-reverse group">
-                    <div class="flex items-center justify-center w-[70px] h-[70px] rounded-full border border-yellow-600 bg-cream-token text-yellow-600 group-hover:bg-yellow-600 group-hover:text-white transition-all duration-500 shadow-xl shrink-0 z-10 font-serif text-3xl md:static md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 ml-0 md:ml-0">03</div>
-                    <div class="w-full mt-8 md:mt-0 md:w-[calc(50%-4rem)] p-8 md:p-10 rounded-sm bg-surface-raise transition-all duration-500 group-hover:-translate-y-2 shadow-xl border border-token">
+                <div class="relative group flex flex-col md:flex-row">
+                    <!-- Absolute Circle on the Line -->
+                    <div class="absolute left-[35px] md:left-1/2 transform -translate-x-1/2 flex items-center justify-center w-[60px] h-[60px] rounded-full border-2 border-yellow-600 bg-cream-token text-yellow-600 group-hover:bg-yellow-600 group-hover:text-white transition-all duration-500 shadow-xl z-10 font-serif text-2xl top-6 md:top-1/2 md:-translate-y-1/2">03</div>
+                    <div class="w-full pl-[90px] md:pl-0 md:w-[calc(50%-4rem)] p-8 md:p-10 rounded-sm bg-surface-raise transition-all duration-500 group-hover:-translate-y-2 shadow-xl border border-token md:ml-auto">
                         <span class="text-yellow-600 font-bold tracking-widest text-[9px] uppercase mb-2 block">Step 03</span>
                         <h4 class="font-serif text-3xl text-main mb-4">Artisan Revival</h4>
                         <p class="text-muted text-sm md:text-base leading-relaxed">Painstaking hand-restoration utilizing museum-grade materials and deeply traditional craft techniques.</p>
@@ -696,9 +699,10 @@
                 </div>
 
                 <!-- Step 4 -->
-                <div class="relative flex flex-col md:flex-row items-start md:items-center justify-between md:odd:flex-row-reverse group">
-                    <div class="flex items-center justify-center w-[70px] h-[70px] rounded-full border border-yellow-600 bg-yellow-600 text-white font-bold transition-all duration-500 shadow-xl shrink-0 z-10 font-serif text-3xl md:static md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 ml-0 md:ml-0">04</div>
-                    <div class="w-full mt-8 md:mt-0 md:w-[calc(50%-4rem)] p-8 md:p-10 rounded-sm bg-surface-raise transition-all duration-500 group-hover:-translate-y-2 shadow-xl border border-token">
+                <div class="relative group flex flex-col md:flex-row">
+                    <!-- Absolute Circle on the Line -->
+                    <div class="absolute left-[35px] md:left-1/2 transform -translate-x-1/2 flex items-center justify-center w-[60px] h-[60px] rounded-full border-2 border-yellow-600 bg-yellow-600 text-[#f8f5f2] transition-all duration-500 shadow-xl z-10 font-serif text-2xl top-6 md:top-1/2 md:-translate-y-1/2">04</div>
+                    <div class="w-full pl-[90px] md:pl-0 md:w-[calc(50%-4rem)] p-8 md:p-10 rounded-sm bg-surface-raise transition-all duration-500 group-hover:-translate-y-2 shadow-xl border border-token md:mr-auto">
                         <span class="text-[#f8f5f2] bg-yellow-600 px-2 py-0.5 font-bold tracking-widest text-[9px] uppercase mb-2 inline-block">Step 04</span>
                         <h4 class="font-serif text-3xl text-main mb-4">Delivery & Storage</h4>
                         <p class="text-muted text-sm md:text-base leading-relaxed">Secure transport back to your estate, or direct induction into our climate-controlled preservation vaults.</p>
